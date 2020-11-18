@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/search_engine_watson.dir/main.cpp.o CMakeFiles/search_engine_watson.dir/porter2_stemmer.cpp.o  -o search_engine_watson.exe -Wl,--out-implib,libsearch_engine_watson.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
