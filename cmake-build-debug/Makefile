@@ -123,6 +123,33 @@ search_engine_watson/fast:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/build
 .PHONY : search_engine_watson/fast
 
+Word.o: Word.cpp.o
+
+.PHONY : Word.o
+
+# target to build an object file
+Word.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Word.cpp.o
+.PHONY : Word.cpp.o
+
+Word.i: Word.cpp.i
+
+.PHONY : Word.i
+
+# target to preprocess a source file
+Word.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Word.cpp.i
+.PHONY : Word.cpp.i
+
+Word.s: Word.cpp.s
+
+.PHONY : Word.s
+
+# target to generate assembly for a file
+Word.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Word.cpp.s
+.PHONY : Word.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... search_engine_watson"
 	@echo "... edit_cache"
+	@echo "... Word.o"
+	@echo "... Word.i"
+	@echo "... Word.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

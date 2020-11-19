@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/search_engine_watson.dir/Word.cpp.o"
   "CMakeFiles/search_engine_watson.dir/main.cpp.o"
   "CMakeFiles/search_engine_watson.dir/porter2_stemmer.cpp.o"
   "libsearch_engine_watson.dll.a"
