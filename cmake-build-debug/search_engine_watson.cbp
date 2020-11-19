@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/AvlNode.h">
+			<Option target="search_engine_watson"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DSAvlTree.h">
 			<Option target="search_engine_watson"/>
 		</Unit>

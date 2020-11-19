@@ -5,43 +5,31 @@
 #ifndef SEARCH_ENGINE_WATSON_DSAVLTREE_H
 #define SEARCH_ENGINE_WATSON_DSAVLTREE_H
 
+#include "AvlNode.h"
+
 using namespace std;
 
 template <typename PlaceHolderType>
 class DSAvlTree{
 private:
-    //node class
-    class AvlNode{
-    public:
-        PlaceHolderType payload;
-        AvlNode* left;
-        AvlNode* right;
-        int height;
-        //default constructor
-        AvlNode(){
-            left=right=nullptr;
-        }
-        //overloaded constructor
-        AvlNode (const PlaceHolderType& element,AvlNode* lt, AvlNode* rt, int h=0):payload(element),left(lt),right(rt),height(h) {};
-    };
     //tree root
-    AvlNode* root;
+    AvlNode<PlaceHolderType>* root;
     //recursive copy function
-    void copier(AvlNode*& to,const AvlNode* from) const{
+    void copier(AvlNode<PlaceHolderType>*& to,const AvlNode<PlaceHolderType>* from) const{
         //if node does not exist
         if(from==nullptr){
             to=nullptr;
         }
         else{
             //copy node and elements
-            to=new AvlNode;
+            to=new AvlNode<PlaceHolderType>;
             to->payload=from->payload;
             copier(to->left,from->left);
             copier(to->right,from->right);
         }
     }
     //recursive clear function
-    void clear(AvlNode*& toDelete){
+    void clear(AvlNode<PlaceHolderType>*& toDelete){
         //delete left node
         if (toDelete->left != nullptr){
             clear(toDelete->left);
@@ -53,7 +41,7 @@ private:
         delete toDelete;
     }
     //calculate height of node
-    int height(AvlNode* head) const{
+    int height(AvlNode<PlaceHolderType>* head) const{
         return head==nullptr ? -1 : head->height;
     }
     //calculate max of node
@@ -61,10 +49,10 @@ private:
         return lhs>rhs?lhs:rhs;
     }
     //insert node recursive function
-    void insert(const PlaceHolderType& toInsert,AvlNode*& head){
+    void insert(const PlaceHolderType& toInsert,AvlNode<PlaceHolderType>*& head){
         //check if node at location exists
         if(head== nullptr){
-            head=new AvlNode(toInsert,nullptr,nullptr);
+            head=new AvlNode<PlaceHolderType>(toInsert,nullptr,nullptr);
         }
             //if toInsert is less than head
         else if(toInsert<head->payload){
@@ -98,14 +86,14 @@ private:
         }
             //TODO is this fine to deal with multiples
             //ignore nodes already in list
-        else{}
+        else;
         //get height of node
         head->height=max(height(head->left),height(head->right))+1;
     }
     //imbalanced tree case one
-    void rotateLeftChild(AvlNode*& k2){
+    void rotateLeftChild(AvlNode<PlaceHolderType>*& k2){
         //single rotation
-        AvlNode* k1=k2->left;
+        AvlNode<PlaceHolderType>* k1=k2->left;
         k2->left=k1->right;
         k1->right=k2;
         k2->height=max(height(k2->left),height(k2->right))+1;
@@ -113,15 +101,15 @@ private:
         k2=k1;
     }
     //imbalanced tree case two
-    void doubleRotateLeftChild(AvlNode*& k3){
+    void doubleRotateLeftChild(AvlNode<PlaceHolderType>*& k3){
         //double rotation
         rotateRightChild(k3->left);
         rotateLeftChild(k3);
     }
     //imbalanced tree case four
-    void rotateRightChild(AvlNode*& k1){
+    void rotateRightChild(AvlNode<PlaceHolderType>*& k1){
         //single rotation
-        AvlNode* k2=k1->right;
+        AvlNode<PlaceHolderType>* k2=k1->right;
         k1->right=k2->left;
         k2->left=k1;
         k1->height=max(height(k1->left),height(k1->right))+1;
@@ -129,13 +117,13 @@ private:
         k1=k2;
     }
     //imbalanced tree case three
-    void doubleRotateRightChild(AvlNode*& k1){
+    void doubleRotateRightChild(AvlNode<PlaceHolderType>*& k1){
         //double rotation
         rotateLeftChild(k1->right);
         rotateRightChild(k1);
     }
     //recursive search function
-    AvlNode* search(PlaceHolderType toFind, AvlNode* head){
+    AvlNode<PlaceHolderType>* search(PlaceHolderType toFind, AvlNode<PlaceHolderType>* head){
         //if element is or is not found
         if(head==nullptr||head->payload==toFind){
             return head;
@@ -182,7 +170,7 @@ public:
         insert(x,root);
     }
     //search  for element in tree and return pointer
-    AvlNode* search(PlaceHolderType x){
+    AvlNode<PlaceHolderType>* search(PlaceHolderType x){
         return search(x, root);
     }
     //search  for element in tree and return payload

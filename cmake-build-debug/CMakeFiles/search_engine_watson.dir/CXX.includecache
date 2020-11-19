@@ -6,10 +6,24 @@
 
 #IncludeRegexTransform: 
 
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/AvlNode.h
+
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DSAvlTree.h
+AvlNode.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/AvlNode.h
+
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Word.h
+string
+-
+DSAvlTree.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DSAvlTree.h
+
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/main.cpp
 iostream
 -
 fstream
+-
+sstream
 -
 string
 -
@@ -23,6 +37,10 @@ rapidjson/stringbuffer.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stringbuffer.h
 rapidjson/filereadstream.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/filereadstream.h
+DSAvlTree.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DSAvlTree.h
+Word.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Word.h
 
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/porter2_stemmer.h
 vector

@@ -8,24 +8,57 @@
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/filereadstream.h"
 #include "DSAvlTree.h"
+#include "Word.h"
 
 using namespace std;
 using namespace rapidjson;
 
 int main(int argc, char** argv){
-    ifstream readJSON;
-    //read article
-    cout<<"Reading test.json..."<<endl;
+    ifstream readfile;
+    //make stop words tree
+    cout<<"Reading stopwords.txt..."<<endl;
     //open users table file
-    readJSON.open("C:\\Users\\watso\\Downloads\\cs2341_project_data\\cs2341_data\\metadata-cs2341.csv");
+    readfile.open("../stopwords.txt");
     //check if it was opened properly
-    if (!readJSON.is_open()) {
-        cout << "Could not open file test.json." << endl;
+    if (!readfile.is_open()) {
+        cout << "Could not open file stopwords.txt." << endl;
         return 1;
     }
+    DSAvlTree<string> stopwords;
+    string input;
+    while(!readfile.eof()){
+        readfile>>input;
+        stopwords.insert(input);
+    }
+    readfile.close();
+    cout<<"Finished reading stopwords.txt."<<endl;
+/*
+    //TODO ABSOLUTE PATH
+    //read article
+    cout<<"Reading here2.txt..."<<endl;
+    //"C:\\Users\\watso\\Downloads\\cs2341_project_data\\cs2341_data\\metadata-cs2341.csv"
+    //open users table file
+    readfile.open(argv[1]);
+    //check if it was opened properly
+    if (!readfile.is_open()) {
+        cout << "Could not open file here2.txt." << endl;
+        return 1;
+    }
+    string hello;
+    readfile>>hello;
+    cout<<hello<<endl;
+    cout<<argv[2]<<endl;
     cout<<"...Success"<<endl<<endl;
-    readJSON.close();
+    readfile.close();//TODO HERE
+*/
 
+
+
+
+
+    DSAvlTree<Word> index;
+
+    //TODO ABSOLUTE PATH
     FILE* fp = fopen("../c63c4d58d170136b8d3b5a66424b5ac3f73a92d9.json", "rb"); // non-Windows use "r"
 
     char readBuffer[65536];
@@ -48,24 +81,78 @@ int main(int argc, char** argv){
         cout<<"\tfirst = "<<itr->GetObject()["first"].GetString()<<endl;
         cout<<"\tlast = "<<itr->GetObject()["last"].GetString()<<endl;
     }*/
-    stringstream ss;
     string word;
     //read abstract
     for (Value::ConstValueIterator itr = d["abstract"].Begin(); itr != d["abstract"].End(); ++itr){
         cout<<"abstract = "<<itr->GetObject()["text"].GetString()<<endl;
+        stringstream ss;
         ss.str(itr->GetObject()["text"].GetString());
-        //while(ss>>word){
-
-        //}
+        while(ss>>word){
+            //stem words
+            Porter2Stemmer::trim(word);
+            Porter2Stemmer::stem(word);
+            //check if word is a stopword
+            if(stopwords.search(word)!=nullptr){
+                continue;
+            }
+            else{
+            }
+            //check if word is in index
+            if(index.search(word)==nullptr){
+                index.insert(Word(word,id));
+            }
+            //if word exists, add id
+            else{
+                index.searchPL(word).addDoc(id);
+            }
+        }
     }
     //read body text
     for (Value::ConstValueIterator itr = d["body_text"].Begin(); itr != d["body_text"].End(); ++itr){
         cout<<"body text = "<<itr->GetObject()["text"].GetString()<<endl;
+        stringstream ss;
+        ss.str(itr->GetObject()["text"].GetString());
+        while(ss>>word){
+            //stem words
+            Porter2Stemmer::trim(word);
+            Porter2Stemmer::stem(word);
+            //check if word is a stopword
+            if(stopwords.search(word)!=nullptr){
+                continue;
+            }
+            //check if word is in index
+            if(index.search(word)==nullptr){
+                index.insert(Word(word,id));
+            }
+            //if word exists, add id
+            else{
+                index.searchPL(word).addDoc(id);
+            }
+        }
     }
     fclose(fp);
 
+    //TODO search for word
+    string word1="infectious";
+    Porter2Stemmer::trim(word1);
+    Porter2Stemmer::stem(word1);
+    if(index.search(word1)!=nullptr){
+        cout<<"WORD 1 FOUND"<<endl;
+    }
+    else{
+        cout<<"NOT FOUND"<<endl;
+    }
+    string word2="poop";
+    Porter2Stemmer::trim(word2);
+    Porter2Stemmer::stem(word2);
+    if(index.search(word2)!=nullptr){
+        cout<<"WORD 2 FOUND"<<endl;
+    }
+    else{
+        cout<<"NOT FOUND"<<endl;
+    }
 /*
-    string to_stem="(((((abandonment";
+    string to_stem="(((((Abandonment";
     string stemmed="abandon";
     std::string orig = to_stem;
     Porter2Stemmer::trim(to_stem);
