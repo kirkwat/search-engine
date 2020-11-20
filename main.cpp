@@ -7,35 +7,51 @@
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/filereadstream.h"
+#include "dirent.h"
 #include "DSAvlTree.h"
 #include "Word.h"
+#include "Indexer.h"
 
 using namespace std;
 using namespace rapidjson;
 
+
+
+
+void explore(char *dir_name){
+    DIR *dir;
+    struct dirent *entry;
+    struct stat info;
+
+    dir=opendir(dir_name);
+    if(!dir){
+        cout<<"Folder not found"<<endl;
+        return;
+    }
+    while((entry=readdir(dir))!=nullptr){
+        if(entry->d_name[0]!='.'){
+            string path=string(dir_name)+"\\\\"+string(entry->d_name);
+            if(path.find(".csv")!=string::npos){
+                cout<<"FOUND"<<endl;
+                cout<<path<<endl;
+            }
+            //cout<<"Entry = "<<path<<endl;
+            stat(path.c_str(),&info);
+            if(S_ISDIR(info.st_mode)){
+                explore((char*)path.c_str());
+            }
+        }
+    }
+    closedir(dir);
+}
+
+
 int main(int argc, char** argv){
-    ifstream readfile;
-    //make stop words tree
-    cout<<"Reading stopwords.txt..."<<endl;
-    //open users table file
-    readfile.open("../stopwords.txt");
-    //check if it was opened properly
-    if (!readfile.is_open()) {
-        cout << "Could not open file stopwords.txt." << endl;
-        return 1;
-    }
-    DSAvlTree<string> stopwords;
-    string input;
-    while(!readfile.eof()){
-        readfile>>input;
-        stopwords.insert(input);
-    }
-    readfile.close();
-    cout<<"Finished reading stopwords.txt."<<endl;
 /*
     //TODO ABSOLUTE PATH
     //read article
     cout<<"Reading here2.txt..."<<endl;
+    //C:\\Users\\watso\\Downloads\\cs2341_project_data\\cs2341_data
     //"C:\\Users\\watso\\Downloads\\cs2341_project_data\\cs2341_data\\metadata-cs2341.csv"
     //open users table file
     readfile.open(argv[1]);
@@ -51,11 +67,31 @@ int main(int argc, char** argv){
     cout<<"...Success"<<endl<<endl;
     readfile.close();//TODO HERE
 */
+//TODO open directory
+explore(argv[1]);
+
+Indexer index=Indexer();
+
+index.createIndex(argv[1]);
+
+index.findQuery(argv[2]);
 
 
 
 
 
+
+
+
+
+
+
+
+
+/*
+
+
+    //open article and index
     DSAvlTree<Word> index;
 
     //TODO ABSOLUTE PATH
@@ -80,7 +116,7 @@ int main(int argc, char** argv){
         cout<<"author"<<endl;
         cout<<"\tfirst = "<<itr->GetObject()["first"].GetString()<<endl;
         cout<<"\tlast = "<<itr->GetObject()["last"].GetString()<<endl;
-    }*/
+    }//TODO HERE
     string word;
     //read abstract
     for (Value::ConstValueIterator itr = d["abstract"].Begin(); itr != d["abstract"].End(); ++itr){
@@ -131,8 +167,7 @@ int main(int argc, char** argv){
         }
     }
     fclose(fp);
-
-    //TODO search for word
+    //search for word
     string word1="infectious";
     Porter2Stemmer::trim(word1);
     Porter2Stemmer::stem(word1);
@@ -151,6 +186,13 @@ int main(int argc, char** argv){
     else{
         cout<<"NOT FOUND"<<endl;
     }
+*/
+
+
+
+
+
+    //TODO STEMMER TEST
 /*
     string to_stem="(((((Abandonment";
     string stemmed="abandon";

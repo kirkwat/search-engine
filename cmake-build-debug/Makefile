@@ -123,6 +123,60 @@ search_engine_watson/fast:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/build
 .PHONY : search_engine_watson/fast
 
+DocHandler.o: DocHandler.cpp.o
+
+.PHONY : DocHandler.o
+
+# target to build an object file
+DocHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o
+.PHONY : DocHandler.cpp.o
+
+DocHandler.i: DocHandler.cpp.i
+
+.PHONY : DocHandler.i
+
+# target to preprocess a source file
+DocHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.i
+.PHONY : DocHandler.cpp.i
+
+DocHandler.s: DocHandler.cpp.s
+
+.PHONY : DocHandler.s
+
+# target to generate assembly for a file
+DocHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s
+.PHONY : DocHandler.cpp.s
+
+Indexer.o: Indexer.cpp.o
+
+.PHONY : Indexer.o
+
+# target to build an object file
+Indexer.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Indexer.cpp.o
+.PHONY : Indexer.cpp.o
+
+Indexer.i: Indexer.cpp.i
+
+.PHONY : Indexer.i
+
+# target to preprocess a source file
+Indexer.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Indexer.cpp.i
+.PHONY : Indexer.cpp.i
+
+Indexer.s: Indexer.cpp.s
+
+.PHONY : Indexer.s
+
+# target to generate assembly for a file
+Indexer.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Indexer.cpp.s
+.PHONY : Indexer.cpp.s
+
 Word.o: Word.cpp.o
 
 .PHONY : Word.o
@@ -213,6 +267,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... search_engine_watson"
 	@echo "... edit_cache"
+	@echo "... DocHandler.o"
+	@echo "... DocHandler.i"
+	@echo "... DocHandler.s"
+	@echo "... Indexer.o"
+	@echo "... Indexer.i"
+	@echo "... Indexer.s"
 	@echo "... Word.o"
 	@echo "... Word.i"
 	@echo "... Word.s"
