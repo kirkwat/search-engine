@@ -13,8 +13,6 @@ int main(int argc, char** argv){
     return 0;
 }
 //delete comments in indexhandler.cpp
-//delete not used files
-    //DocHandler
 //test with 1000 files
     //check time
     //less than a minute is good

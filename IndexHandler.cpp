@@ -28,6 +28,10 @@ void IndexHandler::createIndex(char* data){
                 //open directory
                 createIndex((char*)path.c_str());
             }
+            //ignore meta data file
+            else if(path.find(".csv")!=string::npos){
+                continue;
+            }
             //read path source if path is file
             else{
                 readDoc(path);
@@ -47,30 +51,19 @@ void IndexHandler::readDoc(string path){
     Document d;
     d.ParseStream(is);
     //get id
-    //cout<<"id = "<<d["paper_id"].GetString()<<endl;
     string id=d["paper_id"].GetString();
     //read title
-    //cout<<"title = "<<d["metadata"].GetObject()["title"].GetString()<<endl;
     parseText(d["metadata"].GetObject()["title"].GetString(),id);
-    /*get authors
-    for (Value::ConstValueIterator itr = d["metadata"].GetObject()["authors"].Begin(); itr != d["metadata"].GetObject()["authors"].End(); ++itr){
-        cout<<"author"<<endl;
-        cout<<"\tfirst = "<<itr->GetObject()["first"].GetString()<<endl;
-        cout<<"\tlast = "<<itr->GetObject()["last"].GetString()<<endl;
-    }*/
     //read abstract
     for (Value::ConstValueIterator itr = d["abstract"].Begin(); itr != d["abstract"].End(); ++itr){
-        //cout<<"abstract = "<<itr->GetObject()["text"].GetString()<<endl;
         parseText(itr->GetObject()["text"].GetString(),id);
     }
     //read body text
     for (Value::ConstValueIterator itr = d["body_text"].Begin(); itr != d["body_text"].End(); ++itr){
-        //cout<<"body text = "<<itr->GetObject()["text"].GetString()<<endl;
         parseText(itr->GetObject()["text"].GetString(),id);
     }
     //close file
     fclose(file);
-    //cout<<endl;
 }
 //find search word
 void IndexHandler::findQuery(string query){

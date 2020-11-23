@@ -123,33 +123,6 @@ search_engine_watson/fast:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/build
 .PHONY : search_engine_watson/fast
 
-DocHandler.o: DocHandler.cpp.o
-
-.PHONY : DocHandler.o
-
-# target to build an object file
-DocHandler.cpp.o:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o
-.PHONY : DocHandler.cpp.o
-
-DocHandler.i: DocHandler.cpp.i
-
-.PHONY : DocHandler.i
-
-# target to preprocess a source file
-DocHandler.cpp.i:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.i
-.PHONY : DocHandler.cpp.i
-
-DocHandler.s: DocHandler.cpp.s
-
-.PHONY : DocHandler.s
-
-# target to generate assembly for a file
-DocHandler.cpp.s:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s
-.PHONY : DocHandler.cpp.s
-
 IndexHandler.o: IndexHandler.cpp.o
 
 .PHONY : IndexHandler.o
@@ -267,9 +240,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... search_engine_watson"
 	@echo "... edit_cache"
-	@echo "... DocHandler.o"
-	@echo "... DocHandler.i"
-	@echo "... DocHandler.s"
 	@echo "... IndexHandler.o"
 	@echo "... IndexHandler.i"
 	@echo "... IndexHandler.s"
