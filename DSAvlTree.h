@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/18/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_DSAVLTREE_H
 #define SEARCH_ENGINE_WATSON_DSAVLTREE_H
 
@@ -84,8 +80,7 @@ private:
                 }
             }
         }
-            //TODO is this fine to deal with multiples
-            //ignore nodes already in list
+        //ignore nodes already in list
         else;
         //get height of node
         head->height=max(height(head->left),height(head->right))+1;
@@ -132,7 +127,7 @@ private:
         if(head->payload<toFind){
             return search(toFind,head->right);
         }
-            //if element is less than head
+        //if element is less than head
         else{
             return search(toFind,head->left);
         }
@@ -172,10 +167,6 @@ public:
     //search  for element in tree and return pointer
     AvlNode<PlaceHolderType>* search(PlaceHolderType x){
         return search(x, root);
-    }
-    //search  for element in tree and return payload
-    PlaceHolderType& searchPL(PlaceHolderType x){
-        return search(x, root)->payload;
     }
 };
 

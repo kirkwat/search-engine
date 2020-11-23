@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/20/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_INDEXHANDLER_H
 #define SEARCH_ENGINE_WATSON_INDEXHANDLER_H
 
@@ -27,7 +23,6 @@ class IndexHandler {
 private:
     DSAvlTree<Word> index;
     set<string> stopwords;
-
 
 public:
     IndexHandler();

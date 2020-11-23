@@ -15,7 +15,7 @@ using namespace std;
 class Word {
 private:
     string word;
-    set<string, greater<>> documentIDs;
+    set<string,greater<>> documentIDs;
 
 public:
     Word();

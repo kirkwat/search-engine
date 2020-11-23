@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/20/2020.
-//
-
 #include "IndexHandler.h"
 
 //default constructor
@@ -50,32 +46,31 @@ void IndexHandler::readDoc(string path){
     //parse document
     Document d;
     d.ParseStream(is);
-    //get id and title
-    cout<<"id = "<<d["paper_id"].GetString()<<endl;
+    //get id
+    //cout<<"id = "<<d["paper_id"].GetString()<<endl;
     string id=d["paper_id"].GetString();
-    cout<<"title = "<<d["metadata"].GetObject()["title"].GetString()<<endl;
-    string title=d["metadata"].GetObject()["title"].GetString();
-    parseText(title,id);
+    //read title
+    //cout<<"title = "<<d["metadata"].GetObject()["title"].GetString()<<endl;
+    parseText(d["metadata"].GetObject()["title"].GetString(),id);
     /*get authors
     for (Value::ConstValueIterator itr = d["metadata"].GetObject()["authors"].Begin(); itr != d["metadata"].GetObject()["authors"].End(); ++itr){
         cout<<"author"<<endl;
         cout<<"\tfirst = "<<itr->GetObject()["first"].GetString()<<endl;
         cout<<"\tlast = "<<itr->GetObject()["last"].GetString()<<endl;
     }*/
-    string word;
     //read abstract
     for (Value::ConstValueIterator itr = d["abstract"].Begin(); itr != d["abstract"].End(); ++itr){
-        cout<<"abstract = "<<itr->GetObject()["text"].GetString()<<endl;
+        //cout<<"abstract = "<<itr->GetObject()["text"].GetString()<<endl;
         parseText(itr->GetObject()["text"].GetString(),id);
     }
     //read body text
     for (Value::ConstValueIterator itr = d["body_text"].Begin(); itr != d["body_text"].End(); ++itr){
-        cout<<"body text = "<<itr->GetObject()["text"].GetString()<<endl;
+        //cout<<"body text = "<<itr->GetObject()["text"].GetString()<<endl;
         parseText(itr->GetObject()["text"].GetString(),id);
     }
     //close file
     fclose(file);
-    cout<<endl;
+    //cout<<endl;
 }
 //find search word
 void IndexHandler::findQuery(string query){
@@ -88,6 +83,7 @@ void IndexHandler::findQuery(string query){
     //if query was found
     if(findQuery!=nullptr){
         cout<<query<<" was found."<<endl;
+        //display docs with query
         findQuery->payload.printDocs();
     }
     else{

@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/19/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_AVLNODE_H
 #define SEARCH_ENGINE_WATSON_AVLNODE_H
 
