@@ -10,6 +10,7 @@
 #include <dirent.h>
 #include <sys/stat.h>
 #include "DSAvlTree.h"
+#include "AvlNode.h"
 #include "Word.h"
 #include "IndexHandler.h"
 #include <set>
@@ -18,7 +19,7 @@ using namespace std;
 using namespace rapidjson;
 
 int main(int argc, char** argv){
-    /*
+
     //create handler
     IndexHandler indexer=IndexHandler();
     //create index
@@ -31,7 +32,7 @@ int main(int argc, char** argv){
     Porter2Stemmer::stem(word);
     cout<<word<<endl;
 
-    word="hospitals";
+    word="pandemics";
     Porter2Stemmer::trim(word);
     Porter2Stemmer::stem(word);
     cout<<word<<endl;
@@ -45,8 +46,15 @@ int main(int argc, char** argv){
     Porter2Stemmer::trim(word);
     Porter2Stemmer::stem(word);
     cout<<word<<endl;
-*/
 
+
+
+
+
+
+
+
+/*
 
     ifstream readfile;
     //open file
@@ -58,7 +66,7 @@ int main(int argc, char** argv){
     }
     //make stopword tree
     //set<string,greater<>> stopwords;
-    DSAvlTree<string> stopwords;
+    set<string> stopwords;
     string input;
     while(readfile>>input){
         stopwords.insert(input);
@@ -74,8 +82,6 @@ int main(int argc, char** argv){
     FileReadStream is(fp, readBuffer, sizeof(readBuffer));
     Document d;
     d.ParseStream(is);
-    assert(d.IsObject());
-    assert(d.HasMember("paper_id"));
     //get id and title
     cout<<"id = "<<d["paper_id"].GetString()<<endl;
     string id=d["paper_id"].GetString();
@@ -87,7 +93,7 @@ int main(int argc, char** argv){
         cout<<"author"<<endl;
         cout<<"\tfirst = "<<itr->GetObject()["first"].GetString()<<endl;
         cout<<"\tlast = "<<itr->GetObject()["last"].GetString()<<endl;
-    }*/
+    }//TODO HERE
     string word;
     //read abstract
     for (Value::ConstValueIterator itr = d["abstract"].Begin(); itr != d["abstract"].End(); ++itr){
@@ -99,18 +105,18 @@ int main(int argc, char** argv){
             Porter2Stemmer::trim(word);
             Porter2Stemmer::stem(word);
             //check if word is a stopword
-            if(stopwords.search(word)!=nullptr){
-                continue;
-            }
-            else{
-            }
-            //check if word is in index
-            if(index.search(word)==nullptr){
-                index.insert(Word(word,id));
-            }
-            //if word exists, add id
-            else{
-                index.searchPL(word).addDoc(id);
+            auto it=stopwords.find(word);
+            if(it==stopwords.end()){
+                //check if word is in index
+                AvlNode<Word>* findWord=index.search(word);
+                if(findWord==nullptr){
+                    index.insert(Word(word,id));
+                }
+                //if word exists, add id
+                else{
+                    //index.searchPL(word).addDoc(id);
+                    findWord->payload.addDoc(id);
+                }
             }
         }
     }
@@ -124,20 +130,31 @@ int main(int argc, char** argv){
             Porter2Stemmer::trim(word);
             Porter2Stemmer::stem(word);
             //check if word is a stopword
-            if(stopwords.search(word)!=nullptr){
-                continue;
-            }
-            //check if word is in index
-            if(index.search(word)==nullptr){
-                index.insert(Word(word,id));
-            }
-            //if word exists, add id
-            else{
-                index.searchPL(word).addDoc(id);
+            auto it=stopwords.find(word);
+            if(it==stopwords.end()){
+                //check if word is in index
+                AvlNode<Word>* findWord=index.search(word);
+                if(findWord==nullptr){
+                    index.insert(Word(word,id));
+                }
+                    //if word exists, add id
+                else{
+                    //index.searchPL(word).addDoc(id);
+                    findWord->payload.addDoc(id);
+                }
             }
         }
     }
     fclose(fp);
+
+
+
+
+
+
+
+
+
     //search for word
     string word1="pandemic";
     Porter2Stemmer::trim(word1);
@@ -148,7 +165,7 @@ int main(int argc, char** argv){
     else{
         cout<<"NOT FOUND"<<endl;
     }
-    string word2="poop";
+    string word2="volume";
     Porter2Stemmer::trim(word2);
     Porter2Stemmer::stem(word2);
     if(index.search(word2)!=nullptr){
@@ -157,10 +174,19 @@ int main(int argc, char** argv){
     else{
         cout<<"NOT FOUND"<<endl;
     }
+    string word3="poop";
+    Porter2Stemmer::trim(word3);
+    Porter2Stemmer::stem(word3);
+    if(index.search(word3)!=nullptr){
+        cout<<"WORD 3 FOUND"<<endl;
+    }
+    else{
+        cout<<"NOT FOUND"<<endl;
+    }
 
 
 
-
+*/
 
 
 

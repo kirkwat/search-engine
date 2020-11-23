@@ -12,6 +12,10 @@
 AvlNode.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/AvlNode.h
 
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/IndexHandler.cpp
+IndexHandler.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/IndexHandler.h
+
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/IndexHandler.h
 iostream
 -
@@ -77,6 +81,8 @@ sys/stat.h
 -
 DSAvlTree.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DSAvlTree.h
+AvlNode.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/AvlNode.h
 Word.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Word.h
 IndexHandler.h

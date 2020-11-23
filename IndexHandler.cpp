@@ -84,7 +84,7 @@ void IndexHandler::findQuery(string query){
     Porter2Stemmer::trim(stemmedQuery);
     Porter2Stemmer::stem(stemmedQuery);
     //search index for query
-    AvlNode<Word>* findQuery=index.search(query);
+    AvlNode<Word>* findQuery=index.search(stemmedQuery);
     //if query was found
     if(findQuery!=nullptr){
         cout<<query<<" was found."<<endl;
@@ -101,9 +101,6 @@ void IndexHandler::parseText(string text,string id){
     ss.str(text);
     //read stream
     while(ss>>word){
-        if(word=="pandemics"){
-            cout<<"HERE"<<endl;
-        }
         //stem words
         Porter2Stemmer::trim(word);
         Porter2Stemmer::stem(word);
@@ -112,16 +109,10 @@ void IndexHandler::parseText(string text,string id){
             //check if word is in index
             AvlNode<Word>* findWord=index.search(word);
             if(findWord==nullptr){
-                if(word=="pandemics"){
-                    cout<<"HERE"<<endl;
-                }
                 index.insert(Word(word,id));
             }
             //if word exists, add id
             else{
-                if(word=="pandemics"){
-                    cout<<"HERE2"<<endl;
-                }
                 findWord->payload.addDoc(id);
             }
         }
@@ -137,7 +128,7 @@ void IndexHandler::getStopWords(){
         cout << "Could not open file stopwords.txt." << endl;
         return;
     }
-    //make stopword tree
+    //make stopword set
     string input;
     while(readfile>>input){
         stopwords.insert(input);
