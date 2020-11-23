@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DocHandler.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o"
-  "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Indexer.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/Indexer.cpp.o"
+  "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/IndexHandler.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Word.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/Word.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/main.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/main.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/porter2_stemmer.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/porter2_stemmer.cpp.o"

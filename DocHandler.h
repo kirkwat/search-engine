@@ -6,18 +6,23 @@
 #define SEARCH_ENGINE_WATSON_DOCHANDLER_H
 
 #include <string>
+#include <iostream>
+#include <dirent.h>
+#include <sys/stat.h>
 
 using namespace std;
 
 class DocHandler {
 private:
-    string path;
+    char* dirPath;
+    string metaPath;
 
 public:
     DocHandler();
     DocHandler(char*);
     string getDocLoc();
     void findMetaData();
+    void findMetaData(char*);
 
 };
 

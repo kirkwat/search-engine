@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o"
-  "CMakeFiles/search_engine_watson.dir/Indexer.cpp.o"
+  "CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.o"
   "CMakeFiles/search_engine_watson.dir/Word.cpp.o"
   "CMakeFiles/search_engine_watson.dir/main.cpp.o"
   "CMakeFiles/search_engine_watson.dir/porter2_stemmer.cpp.o"

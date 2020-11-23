@@ -5,20 +5,20 @@
 #ifndef SEARCH_ENGINE_WATSON_WORD_H
 #define SEARCH_ENGINE_WATSON_WORD_H
 
-
+#include <iostream>
+#include <iterator>
 #include <string>
-#include "DSAvlTree.h"
+#include <set>
 
 using namespace std;
 
 class Word {
 private:
     string word;
-    DSAvlTree<string> documentIDs;
+    set<string, greater<>> documentIDs;
 
 public:
     Word();
-    Word(char[]);
     Word(string);
     Word(string,string);
 
@@ -27,9 +27,10 @@ public:
     bool operator< (const Word&)const;
 
     void addDoc(string);
+    void printDocs();
 
     string getWord()const;
-    DSAvlTree<string> getDocs();
+
 };
 
 

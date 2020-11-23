@@ -9,10 +9,6 @@ using namespace std;
 Word::Word(){
     word="NULL";
 }
-//overloaded constructor with cstring
-Word::Word(char input[]){
-    word=input;
-}
 //overloaded constructor with string
 Word::Word(string input){
     word=input;
@@ -42,7 +38,12 @@ void Word::addDoc(string doc){
 string Word::getWord()const{
     return word;
 }
-//get docs
-DSAvlTree<string> Word::getDocs(){
-    return documentIDs;
+//display docs
+void Word::printDocs(){
+    set<string, greater<>>::iterator itr;
+    cout<<"Number of documents: "<<documentIDs.size()<<endl;
+    cout<<"Document IDs:"<<endl;
+    for (itr = documentIDs.begin();itr != documentIDs.end(); ++itr){
+        cout<<"\t"<<*itr<<endl;
+    }
 }

@@ -150,32 +150,32 @@ DocHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s
 .PHONY : DocHandler.cpp.s
 
-Indexer.o: Indexer.cpp.o
+IndexHandler.o: IndexHandler.cpp.o
 
-.PHONY : Indexer.o
+.PHONY : IndexHandler.o
 
 # target to build an object file
-Indexer.cpp.o:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Indexer.cpp.o
-.PHONY : Indexer.cpp.o
+IndexHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.o
+.PHONY : IndexHandler.cpp.o
 
-Indexer.i: Indexer.cpp.i
+IndexHandler.i: IndexHandler.cpp.i
 
-.PHONY : Indexer.i
+.PHONY : IndexHandler.i
 
 # target to preprocess a source file
-Indexer.cpp.i:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Indexer.cpp.i
-.PHONY : Indexer.cpp.i
+IndexHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.i
+.PHONY : IndexHandler.cpp.i
 
-Indexer.s: Indexer.cpp.s
+IndexHandler.s: IndexHandler.cpp.s
 
-.PHONY : Indexer.s
+.PHONY : IndexHandler.s
 
 # target to generate assembly for a file
-Indexer.cpp.s:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Indexer.cpp.s
-.PHONY : Indexer.cpp.s
+IndexHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.s
+.PHONY : IndexHandler.cpp.s
 
 Word.o: Word.cpp.o
 
@@ -270,9 +270,9 @@ help:
 	@echo "... DocHandler.o"
 	@echo "... DocHandler.i"
 	@echo "... DocHandler.s"
-	@echo "... Indexer.o"
-	@echo "... Indexer.i"
-	@echo "... Indexer.s"
+	@echo "... IndexHandler.o"
+	@echo "... IndexHandler.i"
+	@echo "... IndexHandler.s"
 	@echo "... Word.o"
 	@echo "... Word.i"
 	@echo "... Word.s"
