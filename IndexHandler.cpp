@@ -43,13 +43,12 @@ void IndexHandler::createIndex(char* data){
 }
 //read file
 void IndexHandler::readDoc(string path){
-    FILE* file = fopen(path.c_str(), "rb"); // non-Windows use "r"
-    //create stream
-    char readBuffer[65536];
-    FileReadStream is(file, readBuffer, sizeof(readBuffer));
+    ifstream readJSON(path);
+    //create stream wrapper
+    IStreamWrapper isw(readJSON);
     //parse document
     Document d;
-    d.ParseStream(is);
+    d.ParseStream(isw);
     //get id
     string id=d["paper_id"].GetString();
     //read title
@@ -63,7 +62,7 @@ void IndexHandler::readDoc(string path){
         parseText(itr->GetObject()["text"].GetString(),id);
     }
     //close file
-    fclose(file);
+    readJSON.close();
 }
 //find search word
 void IndexHandler::findQuery(string query){

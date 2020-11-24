@@ -1,8 +1,11 @@
 #include "IndexHandler.h"
+#include <time.h>
 
 using namespace std;
 //COMMAND ARGUMENT - "path query"
 int main(int argc, char** argv){
+    //timer
+    clock_t beginning = clock();
     //create handler
     IndexHandler indexer=IndexHandler();
     //create index
@@ -10,11 +13,10 @@ int main(int argc, char** argv){
     //find query
     indexer.findQuery(argv[2]);
 
+    //calculate run time
+    clock_t ending = clock();
+    double runTime = (double) (ending - beginning) / CLOCKS_PER_SEC;
+    cout<<"Time elapsed: "<<runTime<<endl;
+
     return 0;
 }
-//delete comments in indexhandler.cpp
-//test with 1000 files
-    //check time
-    //less than a minute is good
-//test with 12000 files
-    //3 minutes is good

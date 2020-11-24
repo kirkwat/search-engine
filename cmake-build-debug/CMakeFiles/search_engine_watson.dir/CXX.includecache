@@ -31,12 +31,8 @@ set
 -
 rapidjson/document.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/document.h
-rapidjson/writer.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/writer.h
-rapidjson/stringbuffer.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stringbuffer.h
-rapidjson/filereadstream.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/filereadstream.h
+rapidjson/istreamwrapper.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/istreamwrapper.h
 porter2_stemmer.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/porter2_stemmer.h
 DSAvlTree.h
@@ -104,12 +100,6 @@ rapidjson.h
 ../rapidjson.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/rapidjson.h
 
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/filereadstream.h
-stream.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stream.h
-cstdio
--
-
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/biginteger.h
 ../rapidjson.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/rapidjson.h
@@ -132,19 +122,7 @@ limits
 intrin.h
 -
 
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/dtoa.h
-itoa.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/itoa.h
-diyfp.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/diyfp.h
-ieee754.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/ieee754.h
-
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/ieee754.h
-../rapidjson.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/rapidjson.h
-
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/itoa.h
 ../rapidjson.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/rapidjson.h
 
@@ -189,6 +167,14 @@ limits
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/swap.h
 ../rapidjson.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/rapidjson.h
+
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/istreamwrapper.h
+stream.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stream.h
+iosfwd
+-
+ios
+-
 
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/memorystream.h
 stream.h
@@ -273,44 +259,6 @@ rapidjson.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/rapidjson.h
 encodings.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/encodings.h
-
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stringbuffer.h
-stream.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stream.h
-internal/stack.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/stack.h
-utility
--
-internal/stack.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/stack.h
-
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/writer.h
-stream.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stream.h
-internal/clzll.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/clzll.h
-internal/meta.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/meta.h
-internal/stack.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/stack.h
-internal/strfunc.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/strfunc.h
-internal/dtoa.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/dtoa.h
-internal/itoa.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/internal/itoa.h
-stringbuffer.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/rapidjson/stringbuffer.h
-new
--
-intrin.h
--
-nmmintrin.h
--
-emmintrin.h
--
-arm_neon.h
--
 
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/util/hash.h
 array

@@ -8,9 +8,7 @@
 #include <sys/stat.h>
 #include <set>
 #include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
-#include "rapidjson/filereadstream.h"
+#include "rapidjson/istreamwrapper.h"
 #include "porter2_stemmer.h"
 #include "DSAvlTree.h"
 #include "AvlNode.h"

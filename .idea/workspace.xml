@@ -41,7 +41,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="search_engine_watson" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="C:\\Users\\watso\\Downloads\\cs2341_project_data Bangladesh" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_engine_watson" TARGET_NAME="search_engine_watson" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_engine_watson" RUN_TARGET_NAME="search_engine_watson">
+    <configuration name="search_engine_watson" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="C:\\Users\\watso\\Downloads\\cs2341_project_data Europe" PASS_PARENT_ENVS_2="true" PROJECT_NAME="search_engine_watson" TARGET_NAME="search_engine_watson" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="search_engine_watson" RUN_TARGET_NAME="search_engine_watson">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -62,7 +62,8 @@
       <workItem from="1605805802530" duration="11255000" />
       <workItem from="1605891352468" duration="16026000" />
       <workItem from="1606070579018" duration="20797000" />
-      <workItem from="1606153148258" duration="8301000" />
+      <workItem from="1606153148258" duration="11188000" />
+      <workItem from="1606233255596" duration="3007000" />
     </task>
     <servers />
   </component>
@@ -70,30 +71,30 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-138" y="332" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606159457942">
+    <state x="0" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606235303910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="-138" y="332" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606159457942" />
+    <state x="0" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606235303910" />
     <state x="1220" y="279" key="FileChooserDialogImpl" timestamp="1605905144400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1220" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605905144400" />
-    <state width="914" height="287" key="GridCell.Tab.0.bottom" timestamp="1606167003373">
+    <state width="914" height="286" key="GridCell.Tab.0.bottom" timestamp="1606235308861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606167003373" />
-    <state width="914" height="287" key="GridCell.Tab.0.center" timestamp="1606167003372">
+    <state width="914" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606235308861" />
+    <state width="914" height="286" key="GridCell.Tab.0.center" timestamp="1606235308861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606167003372" />
-    <state width="914" height="287" key="GridCell.Tab.0.left" timestamp="1606167003372">
+    <state width="914" height="286" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606235308861" />
+    <state width="914" height="286" key="GridCell.Tab.0.left" timestamp="1606235308860">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606167003372" />
-    <state width="914" height="287" key="GridCell.Tab.0.right" timestamp="1606167003372">
+    <state width="914" height="286" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606235308860" />
+    <state width="914" height="286" key="GridCell.Tab.0.right" timestamp="1606235308861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606167003372" />
+    <state width="914" height="286" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606235308861" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1605769281063">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
