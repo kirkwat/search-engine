@@ -21,6 +21,9 @@ class IndexHandler {
 private:
     DSAvlTree<Word> index;
     set<string> stopwords;
+    int indexSize;
+    int authorCount;
+    int corpusSize;
 
 public:
     IndexHandler();
@@ -29,6 +32,14 @@ public:
     void readDoc(string);
     void parseText(string,string);
     void getStopWords();
+    void displayFreqWords();
+    void clearIndex();
+
+    bool hasElements();
+    int getIndexSize();
+    int getCorpusSize();
+    int getAuthorCount();
+    double getAverage();
 
 };
 

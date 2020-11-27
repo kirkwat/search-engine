@@ -92,6 +92,12 @@
 		<Unit filename="/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/IndexHandler.h">
 			<Option target="search_engine_watson"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.cpp">
+			<Option target="search_engine_watson"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.h">
+			<Option target="search_engine_watson"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Word.cpp">
 			<Option target="search_engine_watson"/>
 		</Unit>

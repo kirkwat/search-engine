@@ -4,6 +4,9 @@
 IndexHandler::IndexHandler(){
     //create stopwords tree
     getStopWords();
+    corpusSize=0;
+    indexSize=0;
+    authorCount=0;
 }
 //create index
 void IndexHandler::createIndex(char* data){
@@ -35,6 +38,7 @@ void IndexHandler::createIndex(char* data){
             //read path source if path is file
             else{
                 readDoc(path);
+                corpusSize++;
             }
         }
     }
@@ -98,6 +102,7 @@ void IndexHandler::parseText(string text,string id){
             AvlNode<Word>* findWord=index.search(word);
             if(findWord==nullptr){
                 index.insert(Word(word,id));
+                indexSize++;
             }
             //if word exists, add id
             else{
@@ -123,4 +128,28 @@ void IndexHandler::getStopWords(){
     }
     //close file
     readfile.close();
+}
+void IndexHandler::displayFreqWords(){
+
+}
+void IndexHandler::clearIndex(){
+    index.clear();
+    //TODO clear author index
+}
+//check to see if index has elements
+bool IndexHandler::hasElements(){
+    //return true if elements exist
+    return index.getRoot()!=nullptr;
+}
+int IndexHandler::getIndexSize(){
+    return indexSize;
+}
+int IndexHandler::getCorpusSize(){
+    return corpusSize;
+}
+int IndexHandler::getAuthorCount(){
+    return authorCount;
+}
+double IndexHandler::getAverage(){
+    return double(indexSize)/double(corpusSize);
 }

@@ -164,9 +164,22 @@ public:
     void insert(const PlaceHolderType & x){
         insert(x,root);
     }
-    //search  for element in tree and return pointer
+    //search for element in tree and return pointer
     AvlNode<PlaceHolderType>* search(PlaceHolderType x){
         return search(x, root);
+    }
+    //clear avl tree
+    void clear(){
+        if (root == nullptr) {
+            return;
+        }
+        else{
+            clear(root);
+        }
+    }
+    //get root node
+    AvlNode<PlaceHolderType>* getRoot(){
+        return root;
     }
 };
 

@@ -1,22 +1,28 @@
 #include "IndexHandler.h"
-#include <time.h>
+#include "Interface.h"
 
 using namespace std;
 //COMMAND ARGUMENT - "path query"
 int main(int argc, char** argv){
-    //timer
-    clock_t beginning = clock();
+    /*
     //create handler
     IndexHandler indexer=IndexHandler();
     //create index
     indexer.createIndex(argv[1]);
     //find query
     indexer.findQuery(argv[2]);
-
-    //calculate run time
-    clock_t ending = clock();
-    double runTime = (double) (ending - beginning) / CLOCKS_PER_SEC;
-    cout<<"Time elapsed: "<<runTime<<endl;
+     */
+    Interface engine;
+    engine.launchEngine();
 
     return 0;
 }
+
+//QUESTIONS
+//should we have the path to corpus hardcoded into program
+//what is a persistence file
+//is the average number of words indexed by article just indexSize/corpusSize or is it the wordCountPerArticle/corpusSize
+
+//TODO
+//create hashtable
+//parse authors

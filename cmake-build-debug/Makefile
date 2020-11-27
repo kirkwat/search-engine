@@ -150,6 +150,33 @@ IndexHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.s
 .PHONY : IndexHandler.cpp.s
 
+Interface.o: Interface.cpp.o
+
+.PHONY : Interface.o
+
+# target to build an object file
+Interface.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Interface.cpp.o
+.PHONY : Interface.cpp.o
+
+Interface.i: Interface.cpp.i
+
+.PHONY : Interface.i
+
+# target to preprocess a source file
+Interface.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Interface.cpp.i
+.PHONY : Interface.cpp.i
+
+Interface.s: Interface.cpp.s
+
+.PHONY : Interface.s
+
+# target to generate assembly for a file
+Interface.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Interface.cpp.s
+.PHONY : Interface.cpp.s
+
 Word.o: Word.cpp.o
 
 .PHONY : Word.o
@@ -243,6 +270,9 @@ help:
 	@echo "... IndexHandler.o"
 	@echo "... IndexHandler.i"
 	@echo "... IndexHandler.s"
+	@echo "... Interface.o"
+	@echo "... Interface.i"
+	@echo "... Interface.s"
 	@echo "... Word.o"
 	@echo "... Word.i"
 	@echo "... Word.s"
