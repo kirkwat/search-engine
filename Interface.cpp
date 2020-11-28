@@ -22,7 +22,7 @@ void Interface::launchEngine(){
         menuEntry:
         cin>>option;
         if(option==1){
-            if(indexer.hasElements()){
+            if(engine.indexFull()){
                 searchIndex();
             }
             else{
@@ -30,7 +30,7 @@ void Interface::launchEngine(){
             }
         }
         else if(option==2){
-            if(!indexer.hasElements()){
+            if(!engine.indexFull()){
                 createIndex();
             }
             else{
@@ -38,7 +38,7 @@ void Interface::launchEngine(){
             }
         }
         else if(option==3){
-            if(indexer.hasElements()){
+            if(engine.indexFull()){
                 clearIndex();
             }
             else{
@@ -46,7 +46,7 @@ void Interface::launchEngine(){
             }
         }
         else if(option==4){
-            if(indexer.hasElements()){
+            if(engine.indexFull()){
                 engineStats();
             }
             else{
@@ -75,7 +75,7 @@ void Interface::createIndex(){
     cin>>input;
     if(input==1){
         cout<<endl<<"Creating index..."<<endl;
-        indexer.createIndex("C:\\Users\\watso\\Downloads\\cs2341_project_data");
+        engine.createIndex();
         cout<<"...Complete!"<<endl;
     }
     else if(input==2){
@@ -90,21 +90,17 @@ void Interface::createIndex(){
 //clear index
 void Interface::clearIndex(){
     cout<<endl<<"Clearing index..."<<endl;
-    indexer.clearIndex();
+    engine.clearIndex();
     cout<<"...Complete!"<<endl;
 
 }
 //search engine
 void Interface::searchIndex(){
-    //TODO
+    cout<<endl<<"Please enter your query below using the proper formatting:"<<endl;
+    string input;
+
 }
 //search engine stats
 void Interface::engineStats(){
-    cout<<endl<<"Search Engine Statistics"<<endl;
-    cout<<"\tTotal number of individual articles indexed: "<<indexer.getCorpusSize()<<endl;
-    cout<<"\tAverage number of words indexed per article: "<<indexer.getAverage()<<endl;
-    cout<<"\tTotal number of unique words: "<<indexer.getIndexSize()<<endl;
-    cout<<"\tTotal number of unique authors: "<<indexer.getAuthorCount()<<endl;
-    cout<<"\tTop 50 most frequent words:"<<endl;
-    indexer.displayFreqWords();
+    engine.displayStats();
 };

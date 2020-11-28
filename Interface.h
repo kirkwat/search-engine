@@ -6,13 +6,13 @@
 #define SEARCH_ENGINE_WATSON_INTERFACE_H
 
 #include <iostream>
-#include "IndexHandler.h"
+#include "SearchEngine.h"
 
 using namespace std;
 
 class Interface {
 private:
-    IndexHandler indexer;
+    SearchEngine engine;
 
 public:
     Interface();

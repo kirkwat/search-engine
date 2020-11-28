@@ -12,6 +12,7 @@ int main(int argc, char** argv){
     //find query
     indexer.findQuery(argv[2]);
      */
+
     Interface engine;
     engine.launchEngine();
 
@@ -26,3 +27,8 @@ int main(int argc, char** argv){
 //TODO
 //create hashtable
 //parse authors
+
+//ROAD MAP
+//doc handler
+//doc object
+//author object

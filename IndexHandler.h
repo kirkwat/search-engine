@@ -13,6 +13,7 @@
 #include "DSAvlTree.h"
 #include "AvlNode.h"
 #include "Word.h"
+#include "Author.h"
 
 using namespace std;
 using namespace rapidjson;
@@ -20,6 +21,7 @@ using namespace rapidjson;
 class IndexHandler {
 private:
     DSAvlTree<Word> index;
+    DSAvlTree<Author> authIndex;
     set<string> stopwords;
     int indexSize;
     int authorCount;
@@ -31,6 +33,7 @@ public:
     void findQuery(string);
     void readDoc(string);
     void parseText(string,string);
+    void addAuthor(string,string,string);
     void getStopWords();
     void displayFreqWords();
     void clearIndex();

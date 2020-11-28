@@ -123,6 +123,87 @@ search_engine_watson/fast:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/build
 .PHONY : search_engine_watson/fast
 
+Author.o: Author.cpp.o
+
+.PHONY : Author.o
+
+# target to build an object file
+Author.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Author.cpp.o
+.PHONY : Author.cpp.o
+
+Author.i: Author.cpp.i
+
+.PHONY : Author.i
+
+# target to preprocess a source file
+Author.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Author.cpp.i
+.PHONY : Author.cpp.i
+
+Author.s: Author.cpp.s
+
+.PHONY : Author.s
+
+# target to generate assembly for a file
+Author.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Author.cpp.s
+.PHONY : Author.cpp.s
+
+DocHandler.o: DocHandler.cpp.o
+
+.PHONY : DocHandler.o
+
+# target to build an object file
+DocHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o
+.PHONY : DocHandler.cpp.o
+
+DocHandler.i: DocHandler.cpp.i
+
+.PHONY : DocHandler.i
+
+# target to preprocess a source file
+DocHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.i
+.PHONY : DocHandler.cpp.i
+
+DocHandler.s: DocHandler.cpp.s
+
+.PHONY : DocHandler.s
+
+# target to generate assembly for a file
+DocHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s
+.PHONY : DocHandler.cpp.s
+
+Document.o: Document.cpp.o
+
+.PHONY : Document.o
+
+# target to build an object file
+Document.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Document.cpp.o
+.PHONY : Document.cpp.o
+
+Document.i: Document.cpp.i
+
+.PHONY : Document.i
+
+# target to preprocess a source file
+Document.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Document.cpp.i
+.PHONY : Document.cpp.i
+
+Document.s: Document.cpp.s
+
+.PHONY : Document.s
+
+# target to generate assembly for a file
+Document.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Document.cpp.s
+.PHONY : Document.cpp.s
+
 IndexHandler.o: IndexHandler.cpp.o
 
 .PHONY : IndexHandler.o
@@ -176,6 +257,33 @@ Interface.s: Interface.cpp.s
 Interface.cpp.s:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Interface.cpp.s
 .PHONY : Interface.cpp.s
+
+SearchEngine.o: SearchEngine.cpp.o
+
+.PHONY : SearchEngine.o
+
+# target to build an object file
+SearchEngine.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.o
+.PHONY : SearchEngine.cpp.o
+
+SearchEngine.i: SearchEngine.cpp.i
+
+.PHONY : SearchEngine.i
+
+# target to preprocess a source file
+SearchEngine.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.i
+.PHONY : SearchEngine.cpp.i
+
+SearchEngine.s: SearchEngine.cpp.s
+
+.PHONY : SearchEngine.s
+
+# target to generate assembly for a file
+SearchEngine.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.s
+.PHONY : SearchEngine.cpp.s
 
 Word.o: Word.cpp.o
 
@@ -267,12 +375,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... search_engine_watson"
 	@echo "... edit_cache"
+	@echo "... Author.o"
+	@echo "... Author.i"
+	@echo "... Author.s"
+	@echo "... DocHandler.o"
+	@echo "... DocHandler.i"
+	@echo "... DocHandler.s"
+	@echo "... Document.o"
+	@echo "... Document.i"
+	@echo "... Document.s"
 	@echo "... IndexHandler.o"
 	@echo "... IndexHandler.i"
 	@echo "... IndexHandler.s"
 	@echo "... Interface.o"
 	@echo "... Interface.i"
 	@echo "... Interface.s"
+	@echo "... SearchEngine.o"
+	@echo "... SearchEngine.i"
+	@echo "... SearchEngine.s"
 	@echo "... Word.o"
 	@echo "... Word.i"
 	@echo "... Word.s"

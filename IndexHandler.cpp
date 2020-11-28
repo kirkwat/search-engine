@@ -57,6 +57,10 @@ void IndexHandler::readDoc(string path){
     string id=d["paper_id"].GetString();
     //read title
     parseText(d["metadata"].GetObject()["title"].GetString(),id);
+    //get authors
+    for (Value::ConstValueIterator itr = d["metadata"].GetObject()["authors"].Begin(); itr != d["metadata"].GetObject()["authors"].End(); ++itr){
+        addAuthor(itr->GetObject()["first"].GetString(),itr->GetObject()["last"].GetString(),id);
+    }
     //read abstract
     for (Value::ConstValueIterator itr = d["abstract"].Begin(); itr != d["abstract"].End(); ++itr){
         parseText(itr->GetObject()["text"].GetString(),id);
@@ -111,6 +115,21 @@ void IndexHandler::parseText(string text,string id){
         }
     }
 }
+void IndexHandler::addAuthor(string first,string last,string id){
+    Porter2Stemmer::trim(first);
+    Porter2Stemmer::trim(last);
+    string combined=last+","+first;
+    //check if author is in index
+    AvlNode<Author>* findAuthor=authIndex.search(combined);
+    if(findAuthor==nullptr){
+        authIndex.insert(Author(combined,id));
+        authorCount++;
+    }
+    //if author exists, add id
+    else{
+        findAuthor->payload.addDoc(id);
+    }
+}
 //create stopword list
 void IndexHandler::getStopWords(){
     ifstream readfile;
@@ -130,7 +149,7 @@ void IndexHandler::getStopWords(){
     readfile.close();
 }
 void IndexHandler::displayFreqWords(){
-
+    //TODO
 }
 void IndexHandler::clearIndex(){
     index.clear();
