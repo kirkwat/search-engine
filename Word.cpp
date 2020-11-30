@@ -47,3 +47,6 @@ void Word::printDocs(){
         cout<<"\t"<<*itr<<endl;
     }
 }
+set<string> Word::getDocs()const{
+    return documentIDs;
+}

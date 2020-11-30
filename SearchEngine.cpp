@@ -24,8 +24,51 @@ void SearchEngine::displayStats(){
     cout<<"\tTop 50 most frequent words:"<<endl;
     indexer.displayFreqWords();
 }
-void SearchEngine::search(string){
-
+void SearchEngine::search(string query){
+    int searchType=-1;
+    string word;
+    stringstream ss;
+    ss.str(query);
+    //read stream
+    while(ss>>word){
+        if(word=="AND"){
+            searchType=0;
+        }
+        else if(word=="OR"){
+            searchType=1;
+        }
+        else if(word=="NOT"){
+            searchType=2;
+        }
+        else if(word=="AUTHOR"){
+            searchType=3;
+        }
+        else{
+            //search for author
+            if(searchType==3){
+                AvlNode<Author>* findAuth=indexer.findAuthor(word);
+                //if query was found
+                if(findAuth!=nullptr){
+                    authDocs=findAuth->payload.getDocs();
+                }
+            }
+            //search for word
+            else{
+                AvlNode<Word>* findQuery=indexer.findWord(word);
+                //if query was found
+                if(findQuery!=nullptr){
+                    if(searchType==2){
+                        notDocs.push_back(findQuery->payload.getDocs());
+                    }
+                    else{
+                        conditionalDocs.push_back(findQuery->payload.getDocs());
+                    }
+                    //TODO SET DIFFERENCE
+                    //SET INTERSECTION
+                }
+            }
+        }
+    }
 }
 void SearchEngine::displaySearch(){
 

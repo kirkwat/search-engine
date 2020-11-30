@@ -7,47 +7,39 @@
 Author::Author(){
     first="NULL";
     last="NULL";
-    combined="NULL";
 }
 //overloaded constructor with combined name
-Author::Author(string fullName) {
+Author::Author(string l) {
     first="NULL";
-    last="NULL";
-    combined=fullName;
-}
-//overloaded constructor with combined name and id
-Author::Author(string fullName, string id) {
-    first="NULL";
-    last="NULL";
-    combined=fullName;
-    addDoc(id);
+    last=l;
 }
 //overloaded constructor with full name and id
 Author::Author(string f,string l,string id){
     first=f;
     last=l;
-    combined=last+","+first;
     addDoc(id);
 }
 //equal to operator with string
 bool Author::operator== (const Author& copy)const{
-    return combined == copy.combined;
+    return last == copy.last;
 }
 //greater than operator with string
 bool Author::operator> (const Author& copy)const{
-    return combined > copy.combined;
+    return last > copy.last;
 }
 //less than operator with string
 bool Author::operator< (const Author& copy)const{
-    return combined < copy.combined;
+    return last < copy.last;
 }
 //add document to tree
 void Author::addDoc(string doc){
     documentIDs.insert(doc);
 }
-//return string of word
-string Author::getFullName()const{
-    return combined;
+string Author::getLast()const{
+    return last;
+}
+string Author::getFirst()const{
+    return first;
 }
 //display docs
 void Author::printDocs(){
@@ -57,4 +49,7 @@ void Author::printDocs(){
     for (itr = documentIDs.begin();itr != documentIDs.end(); ++itr){
         cout<<"\t"<<*itr<<endl;
     }
+}
+set<string> Author::getDocs()const{
+    return documentIDs;
 }

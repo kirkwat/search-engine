@@ -96,8 +96,12 @@ void Interface::clearIndex(){
 }
 //search engine
 void Interface::searchIndex(){
-    cout<<endl<<"Please enter your query below using the proper formatting:"<<endl;
+    cout<<endl<<"Please enter your query below using the proper formatting."<<endl;
+    cout<<"Note: Please enter operators in all caps"<<endl;
     string input;
+    getline(cin, input);
+    cout<<"Searching..."<<endl;
+    engine.search(input);
 
 }
 //search engine stats

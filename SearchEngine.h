@@ -7,11 +7,20 @@
 
 #include "IndexHandler.h"
 #include "DocHandler.h"
+#include "porter2_stemmer.h"
+#include <set>
+#include <list>
 
 class SearchEngine {
 private:
     IndexHandler indexer;
     DocHandler docProcessor;
+    set<string> authDocs;
+    list<set<string>> notDocs;
+    list<set<string>> conditionalDocs;
+
+
+
 
 public:
     SearchEngine();

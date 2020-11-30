@@ -15,12 +15,10 @@ class Author {
 private:
     string last;
     string first;
-    string combined;
-    set<string,greater<>> documentIDs;
+    set<string> documentIDs;
 public:
     Author();
     Author(string);
-    Author(string,string);
     Author(string,string,string);
 
     bool operator== (const Author&)const;
@@ -30,7 +28,9 @@ public:
     void addDoc(string);
     void printDocs();
 
-    string getFullName()const;
+    string getLast()const;
+    string getFirst()const;
+    set<string> getDocs()const;
 
 };
 

@@ -73,22 +73,21 @@ void IndexHandler::readDoc(string path){
     readJSON.close();
 }
 //find search word
-void IndexHandler::findQuery(string query){
+AvlNode<Word>* IndexHandler::findWord(string query){
     //stem query
     string stemmedQuery=query;
     Porter2Stemmer::trim(stemmedQuery);
     Porter2Stemmer::stem(stemmedQuery);
     //search index for query
-    AvlNode<Word>* findQuery=index.search(stemmedQuery);
-    //if query was found
-    if(findQuery!=nullptr){
-        cout<<query<<" was found."<<endl;
-        //display docs with query
-        findQuery->payload.printDocs();
-    }
-    else{
-        cout<<query<<" was not found."<<endl;
-    }
+    return index.search(stemmedQuery);
+}
+//find author
+AvlNode<Author>* IndexHandler::findAuthor(string lastName){
+    //stem query
+    string trimmedName=lastName;
+    Porter2Stemmer::trim(trimmedName);
+    //search index for query
+    return authIndex.search(trimmedName);
 }
 //parse text
 void IndexHandler::parseText(string text,string id){
@@ -118,11 +117,10 @@ void IndexHandler::parseText(string text,string id){
 void IndexHandler::addAuthor(string first,string last,string id){
     Porter2Stemmer::trim(first);
     Porter2Stemmer::trim(last);
-    string combined=last+","+first;
     //check if author is in index
-    AvlNode<Author>* findAuthor=authIndex.search(combined);
+    AvlNode<Author>* findAuthor=authIndex.search(last);
     if(findAuthor==nullptr){
-        authIndex.insert(Author(combined,id));
+        authIndex.insert(Author(first,last,id));
         authorCount++;
     }
     //if author exists, add id
@@ -153,7 +151,7 @@ void IndexHandler::displayFreqWords(){
 }
 void IndexHandler::clearIndex(){
     index.clear();
-    //TODO clear author index
+    authIndex.clear();
 }
 //check to see if index has elements
 bool IndexHandler::hasElements(){
