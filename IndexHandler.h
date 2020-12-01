@@ -45,6 +45,7 @@ public:
     int getAuthorCount();
     double getAverage();
 
+    void testIndex();
 };
 
 

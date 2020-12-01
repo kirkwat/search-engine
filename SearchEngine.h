@@ -9,15 +9,17 @@
 #include "DocHandler.h"
 #include "porter2_stemmer.h"
 #include <set>
-#include <list>
+#include <vector>
+#include <algorithm>
 
 class SearchEngine {
 private:
     IndexHandler indexer;
     DocHandler docProcessor;
     set<string> authDocs;
-    list<set<string>> notDocs;
-    list<set<string>> conditionalDocs;
+    vector<set<string>> notDocs;
+    vector<set<string>> conditionalDocs;
+    set<string> finalDocs;
 
 
 
@@ -31,6 +33,9 @@ public:
     void displayStats();
     void search(string);
     void displaySearch();
+    void clearSearch();
+
+    void testIndex();
 };
 
 

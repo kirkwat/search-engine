@@ -79,7 +79,7 @@ void Interface::createIndex(){
         cout<<"...Complete!"<<endl;
     }
     else if(input==2){
-        //TODO WHAT DOES PERSISTENCE FILE MEAN
+        engine.testIndex();
         cout<<endl<<"WIP"<<endl;
     }
     else{
@@ -99,10 +99,12 @@ void Interface::searchIndex(){
     cout<<endl<<"Please enter your query below using the proper formatting."<<endl;
     cout<<"Note: Please enter operators in all caps"<<endl;
     string input;
+    cin.ignore();
     getline(cin, input);
     cout<<"Searching..."<<endl;
     engine.search(input);
-
+    engine.displaySearch();
+    engine.clearSearch();
 }
 //search engine stats
 void Interface::engineStats(){

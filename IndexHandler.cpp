@@ -170,3 +170,17 @@ int IndexHandler::getAuthorCount(){
 double IndexHandler::getAverage(){
     return double(indexSize)/double(corpusSize);
 }
+void IndexHandler::testIndex() {
+    index.insert(Word("worda","01"));
+    index.insert(Word("wordb","01"));
+    index.insert(Word("wordc","02"));
+    index.insert(Word("wordd","03"));
+    index.insert(Word("worde","04"));
+    index.insert(Word("wordf","05"));
+    index.insert(Word("wordg","06"));
+    index.insert(Word("wordh","06"));
+    index.insert(Word("wordi","07"));
+    authIndex.insert(Author("Kirk","watson","01"));
+    authIndex.insert(Author("Robert","derl","07"));
+
+}

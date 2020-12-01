@@ -50,13 +50,7 @@ Word.h
 Author.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Author.h
 
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.cpp
-Interface.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.h
-
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.h
-iostream
--
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/SearchEngine.cpp
 SearchEngine.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/SearchEngine.h
 
@@ -65,6 +59,14 @@ IndexHandler.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/IndexHandler.h
 DocHandler.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DocHandler.h
+porter2_stemmer.h
+/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/porter2_stemmer.h
+set
+-
+vector
+-
+algorithm
+-
 
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Word.h
 iostream
