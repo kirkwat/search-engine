@@ -16,12 +16,12 @@ private:
 
 public:
     Interface();
+
     void launchEngine();
     void createIndex();
     void clearIndex();
     void searchIndex();
     void engineStats();
-
 };
 
 

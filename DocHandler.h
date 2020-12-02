@@ -39,7 +39,7 @@ public:
     int parseText(string);
     void findMetaData(string);
     void viewDoc(int);
-
+    void clearProcessor();
 };
 
 

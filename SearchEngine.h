@@ -14,9 +14,9 @@
 
 class SearchEngine {
 private:
+    //PLACE CORPUS PATH HERE
     //"C:\\Users\\watso\\Downloads\\cs2341_project_data"
     char* filePath="C:\\Users\\watso\\Downloads\\testing";
-
     IndexHandler indexer;
     DocHandler docProcessor;
     set<string> authDocs;
@@ -25,21 +25,16 @@ private:
     set<string> finalDocs;
     vector<AvlNode<Word>*> searchWords;
 
-
-
-
 public:
     SearchEngine();
 
     void createIndex();
     void clearIndex();
-    bool indexFull();
     void displayStats();
     void search(string);
     void displaySearch();
     void clearSearch();
-
-    void testIndex();
+    bool indexFull();
 };
 
 

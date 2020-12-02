@@ -29,12 +29,13 @@ private:
 
 public:
     IndexHandler();
+
     void createIndex(char*);
     AvlNode<Word>* findWord(string);
     AvlNode<Author>* findAuthor(string);
     void readDoc(string);
     void parseText(string,string);
-    void addAuthor(string,string,string);
+    void addAuthor(string,string);
     void getStopWords();
     void displayFreqWords();
     void clearIndex();
@@ -44,8 +45,6 @@ public:
     int getCorpusSize();
     int getAuthorCount();
     double getAverage();
-
-    void testIndex();
 };
 
 

@@ -30,9 +30,10 @@ public:
     bool operator< (const Article&)const;
 
     void addInfo(string,string,string,string);
+    void printInfo()const;
+
     double getRank();
     string getID()const;
-    void printInfo()const;
 };
 
 

@@ -11,6 +11,7 @@ void Interface::launchEngine(){
     cout<<endl<<"Welcome to the Corona Virus Search Engine developed by Kirk Watson!"<<endl;
     bool enginePower=true;
     int option=0;
+    //loop until user terminates program
     while(enginePower){
         cout<<"Search Engine Menu"<<endl;
         cout<<"\t1. Search"<<endl;
@@ -21,7 +22,9 @@ void Interface::launchEngine(){
         cout<<"Please enter the number corresponding the desired action: ";
         menuEntry:
         cin>>option;
+        //search index
         if(option==1){
+            //check if index has been created
             if(engine.indexFull()){
                 searchIndex();
             }
@@ -29,7 +32,9 @@ void Interface::launchEngine(){
                 cout<<endl<<"The search engine index is empty, please create the index."<<endl;
             }
         }
+        //create index
         else if(option==2){
+            //check if index is empty
             if(!engine.indexFull()){
                 createIndex();
             }
@@ -37,7 +42,9 @@ void Interface::launchEngine(){
                 cout<<endl<<"The search engine index has already been filled, please clear index before recreating the index."<<endl;
             }
         }
+        //clear index
         else if(option==3){
+            //check if index has been created
             if(engine.indexFull()){
                 clearIndex();
             }
@@ -45,7 +52,9 @@ void Interface::launchEngine(){
                 cout<<endl<<"The search engine index is empty, please create the index."<<endl;
             }
         }
+        //engine stats
         else if(option==4){
+            //check if index has been created
             if(engine.indexFull()){
                 engineStats();
             }
@@ -53,10 +62,12 @@ void Interface::launchEngine(){
                 cout<<endl<<"The search engine index is empty, please create the index."<<endl;
             }
         }
+        //end program
         else if(option==5){
             cout<<endl<<"Shutting down search engine.";
             enginePower=false;
         }
+        //user input error
         else{
             cout<<endl<<"Invalid input. Please try again: "<<endl;
             goto menuEntry;
@@ -67,21 +78,25 @@ void Interface::launchEngine(){
 //create index
 void Interface::createIndex(){
     int input;
+    //create index menu
     cout<<endl<<"Select one of the following options."<<endl;
     cout<<"\t1. Parse the corpus."<<endl;
     cout<<"\t2. Open a persistence file."<<endl;
     cout<<"Please enter the number corresponding the desired action: ";
     inputEntry:
     cin>>input;
+    //parse corpus
     if(input==1){
         cout<<endl<<"Creating index..."<<endl;
         engine.createIndex();
         cout<<"...Complete!"<<endl;
     }
+    //persistence file
     else if(input==2){
-        engine.testIndex();
+        //TODO
         cout<<endl<<"WIP"<<endl;
     }
+    //user input error
     else{
         cout<<"Invalid input. Please try again: "<<endl;
         goto inputEntry;
@@ -98,12 +113,16 @@ void Interface::clearIndex(){
 void Interface::searchIndex(){
     cout<<endl<<"Please enter your query below using the proper formatting."<<endl;
     cout<<"Note: Please enter operators in all caps"<<endl;
+    //read user search
     string input;
     cin.ignore();
     getline(cin, input);
     cout<<endl<<"Searching..."<<endl<<endl;
+    //search
     engine.search(input);
+    //show results
     engine.displaySearch();
+    //clear search
     engine.clearSearch();
 }
 //search engine stats

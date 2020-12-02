@@ -28,7 +28,6 @@ public:
     bool operator< (const Word&)const;
 
     void addDoc(string);
-    void printDocs();
 
     string getWord()const;
     set<string> getDocs()const;

@@ -59,7 +59,7 @@ void IndexHandler::readDoc(string path){
     parseText(d["metadata"].GetObject()["title"].GetString(),id);
     //get authors
     for (Value::ConstValueIterator itr = d["metadata"].GetObject()["authors"].Begin(); itr != d["metadata"].GetObject()["authors"].End(); ++itr){
-        addAuthor(itr->GetObject()["first"].GetString(),itr->GetObject()["last"].GetString(),id);
+        addAuthor(itr->GetObject()["last"].GetString(),id);
     }
     //read abstract
     for (Value::ConstValueIterator itr = d["abstract"].Begin(); itr != d["abstract"].End(); ++itr){
@@ -114,13 +114,13 @@ void IndexHandler::parseText(string text,string id){
         }
     }
 }
-void IndexHandler::addAuthor(string first,string last,string id){
-    Porter2Stemmer::trim(first);
+//add author to author index
+void IndexHandler::addAuthor(string last,string id){
     Porter2Stemmer::trim(last);
     //check if author is in index
     AvlNode<Author>* findAuthor=authIndex.search(last);
     if(findAuthor==nullptr){
-        authIndex.insert(Author(first,last,id));
+        authIndex.insert(Author(last,id));
         authorCount++;
     }
     //if author exists, add id
@@ -146,9 +146,11 @@ void IndexHandler::getStopWords(){
     //close file
     readfile.close();
 }
+//find and display 50 most frequent words
 void IndexHandler::displayFreqWords(){
     //TODO
 }
+//reset and clear index
 void IndexHandler::clearIndex(){
     index.clear();
     authIndex.clear();
@@ -161,29 +163,19 @@ bool IndexHandler::hasElements(){
     //return true if elements exist
     return index.getRoot()!=nullptr&&indexSize>0;
 }
+//get size of index
 int IndexHandler::getIndexSize(){
     return indexSize;
 }
+//get size of corpus
 int IndexHandler::getCorpusSize(){
     return corpusSize;
 }
+//get author count
 int IndexHandler::getAuthorCount(){
     return authorCount;
 }
+//get average of words indexed per article
 double IndexHandler::getAverage(){
     return double(indexSize)/double(corpusSize);
-}
-void IndexHandler::testIndex() {
-    index.insert(Word("worda","01"));
-    index.insert(Word("wordb","01"));
-    index.insert(Word("wordc","02"));
-    index.insert(Word("wordd","03"));
-    index.insert(Word("worde","04"));
-    index.insert(Word("wordf","05"));
-    index.insert(Word("wordg","06"));
-    index.insert(Word("wordh","06"));
-    index.insert(Word("wordi","07"));
-    authIndex.insert(Author("Kirk","watson","01"));
-    authIndex.insert(Author("Robert","derl","07"));
-
 }

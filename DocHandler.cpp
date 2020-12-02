@@ -4,15 +4,18 @@
 
 #include "DocHandler.h"
 
+//default constructor
 DocHandler::DocHandler() {
     corpusSize=0;
 }
+//process docs
 void DocHandler::processDocs(set<string> docs,vector<AvlNode<Word>*> words,string path,int corpus) {
+    //add info
     searchWords=words;
     corpusSize=corpus;
     corpusPath=path;
     findMetaData(corpusPath);
-
+    //read metadata file
     ifstream readfile;
     //open file
     readfile.open(metaPath);
@@ -24,13 +27,13 @@ void DocHandler::processDocs(set<string> docs,vector<AvlNode<Word>*> words,strin
     string input;
     getline(readfile,input);
     while(!readfile.eof()){
-        //info to print
+        //info to save
         //title, first author, publication, date published
         //cord_uid
         getline(readfile,input,',');
         //sha
         getline(readfile,input,',');
-
+        //if document is found
         auto it=docs.find(input);
         if(it!=docs.end()){
             //source_x
@@ -88,39 +91,49 @@ void DocHandler::processDocs(set<string> docs,vector<AvlNode<Word>*> words,strin
             }
             //remainder of line
             getline(readfile,input);
-
+            //open doc
             string filePath=corpusPath+"\\\\"+*it+".json";
-            rankDoc(filePath);
+            //create article and get rank
             Article temp=Article(*it,rankDoc(filePath));
+            //add info
             temp.addInfo(title,date,author,publication);
+            //add article to set
             sortedDocs.insert(temp);
         }
+        //skip line if doc is not found
         else{
             getline(readfile,input);
         }
     }
     readfile.close();
 }
+//print top 15 documents
 void DocHandler::printTopDocs(){
     int counter=1;
+    //print in top order
     set<Article>::reverse_iterator itr;
     for (itr = sortedDocs.rbegin();itr != sortedDocs.rend(); itr++){
+        //end at 15 docs
         if(counter==16){
             break;
         }
+        //formatting
         if(counter>9){
             cout<<"\t"<<counter<<". ";
         }
         else{
             cout<<"\t "<<counter<<". ";
         }
+        //print info
         itr->printInfo();
         if(counter!=15){
             cout<<endl;
         }
+        //formatting
         counter++;
     }
 }
+//rank doc
 double DocHandler::rankDoc(string path){
     wordCount=0;
     ifstream readJSON(path);
@@ -129,7 +142,7 @@ double DocHandler::rankDoc(string path){
     //parse document
     Document d;
     d.ParseStream(isw);
-
+    //increase score
     int score=0;
     //get id
     string id=d["paper_id"].GetString();
@@ -145,7 +158,7 @@ double DocHandler::rankDoc(string path){
     }
     //close file
     readJSON.close();
-
+    //calculate rank
     double docAppearances=0;
     for(int x=0;x<searchWords.size();x++){
         docAppearances+=searchWords[x]->payload.getDocCount();
@@ -165,6 +178,7 @@ int DocHandler::parseText(string text){
         Porter2Stemmer::stem(word);
         //check if word is search word
         for(int x=0;x<searchWords.size();x++){
+            //add to score if search word is found
             if(word==searchWords[x]->payload.getWord()){
                 score++;
             }
@@ -173,7 +187,7 @@ int DocHandler::parseText(string text){
     }
     return score;
 }
-//create index
+//find metadata file
 void DocHandler::findMetaData(string data){
     DIR *directory;
     struct dirent *entry;
@@ -196,7 +210,7 @@ void DocHandler::findMetaData(string data){
                 //open directory
                 findMetaData(path);
             }
-            //open meta data file
+            //get metadata path
             else if(path.find(".csv")!=string::npos){
                 metaPath=path;
                 break;
@@ -206,13 +220,16 @@ void DocHandler::findMetaData(string data){
     //close directory
     closedir(directory);
 }
+//preview document
 void DocHandler::viewDoc(int docNum){
     int counter=1;
+    //find requested doc
     set<Article>::reverse_iterator itr;
     for (itr = sortedDocs.rbegin();itr != sortedDocs.rend(); itr++){
         if(docNum==counter){
+            //get path
             string filePath=corpusPath+"\\\\"+itr->getID()+".json";
-
+            //open file
             ifstream readJSON(filePath);
             //create stream wrapper
             IStreamWrapper isw(readJSON);
@@ -233,6 +250,7 @@ void DocHandler::viewDoc(int docNum){
                     wordCount++;
                     lineLength+=word.length();
                     cout<<word;
+                    //formatting
                     if(lineLength>150){
                         cout<<"\n\t";
                         lineLength=0;
@@ -240,6 +258,7 @@ void DocHandler::viewDoc(int docNum){
                     else{
                         cout<<" ";
                     }
+                    //end at 300 words
                     if(wordCount==299){
                         cout<<"..."<<endl;
                         break;
@@ -255,4 +274,13 @@ void DocHandler::viewDoc(int docNum){
         }
         counter++;
     }
+}
+//clear search info
+void DocHandler::clearProcessor(){
+    sortedDocs.clear();
+    searchWords.clear();
+    corpusSize=0;
+    corpusPath="NULL";
+    metaPath="NULL";
+    wordCount=0;
 }
