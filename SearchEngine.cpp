@@ -7,7 +7,7 @@
 SearchEngine::SearchEngine(){}
 
 void SearchEngine::createIndex(){
-    indexer.createIndex("C:\\Users\\watso\\Downloads\\cs2341_project_data");
+    indexer.createIndex(filePath);
 }
 void SearchEngine::clearIndex(){
     indexer.clearIndex();
@@ -63,6 +63,7 @@ void SearchEngine::search(string query){
                     }
                     else{
                         conditionalDocs.push_back(findQuery->payload.getDocs());
+                        searchWords.push_back(findQuery);
                     }
                 }
             }
@@ -125,15 +126,14 @@ void SearchEngine::search(string query){
 }
 void SearchEngine::displaySearch(){
     if(!finalDocs.empty()){
-        set<string>::iterator itr;
-        cout<<"Number of documents: "<<finalDocs.size()<<endl;
-        cout<<"Document IDs:"<<endl;
-        for (itr = finalDocs.begin();itr != finalDocs.end(); ++itr){
-            cout<<"\t"<<*itr<<endl;
-        }
+        cout<<"Results"<<endl;
+        cout<<"\tNumber of documents found: "<<finalDocs.size()<<endl;
+        docProcessor.processDocs(finalDocs,searchWords,string(filePath),indexer.getCorpusSize());
+        cout<<"\tShowing top 15 results"<<endl;
+        docProcessor.printTopDocs();
     }
     else{
-        cout<<"No documents were found"<<endl;
+        cout<<"No results were found :/"<<endl;
     }
 }
 void SearchEngine::clearSearch() {
@@ -147,6 +147,7 @@ void SearchEngine::clearSearch() {
         notDocs[x].clear();
     }
     notDocs.clear();
+    searchWords.clear();
 }
 
 void SearchEngine::testIndex() {

@@ -7,14 +7,17 @@
 using namespace std;
 //default constructor
 Word::Word(){
+    appearances=0;
     word="NULL";
 }
 //overloaded constructor with string
 Word::Word(string input){
+    appearances=0;
     word=input;
 }
 //overloaded constructor with string and id
 Word::Word(string input,string id){
+    appearances=1;
     word=input;
     addDoc(id);
 }
@@ -32,6 +35,7 @@ bool Word::operator< (const Word& copy)const{
 }
 //add document to tree
 void Word::addDoc(string doc){
+    appearances++;
     documentIDs.insert(doc);
 }
 //return string of word
@@ -42,11 +46,18 @@ string Word::getWord()const{
 void Word::printDocs(){
     set<string>::iterator itr;
     cout<<"Number of documents: "<<documentIDs.size()<<endl;
-    cout<<"Document IDs:"<<endl;
+    cout<<"Article IDs:"<<endl;
     for (itr = documentIDs.begin();itr != documentIDs.end(); ++itr){
         cout<<"\t"<<*itr<<endl;
     }
 }
 set<string> Word::getDocs()const{
     return documentIDs;
+}
+int Word::getDocCount()const{
+    return documentIDs.size();
+}
+
+int Word::getAppearances() const {
+    return appearances;
 }

@@ -101,7 +101,7 @@ void Interface::searchIndex(){
     string input;
     cin.ignore();
     getline(cin, input);
-    cout<<"Searching..."<<endl;
+    cout<<"Searching..."<<endl<<endl;
     engine.search(input);
     engine.displaySearch();
     engine.clearSearch();

@@ -45,7 +45,7 @@ string Author::getFirst()const{
 void Author::printDocs(){
     set<string>::iterator itr;
     cout<<"Number of documents: "<<documentIDs.size()<<endl;
-    cout<<"Document IDs:"<<endl;
+    cout<<"Article IDs:"<<endl;
     for (itr = documentIDs.begin();itr != documentIDs.end(); ++itr){
         cout<<"\t"<<*itr<<endl;
     }

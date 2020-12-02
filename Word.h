@@ -16,6 +16,7 @@ class Word {
 private:
     string word;
     set<string> documentIDs;
+    int appearances;
 
 public:
     Word();
@@ -31,6 +32,8 @@ public:
 
     string getWord()const;
     set<string> getDocs()const;
+    int getDocCount()const;
+    int getAppearances()const;
 
 };
 

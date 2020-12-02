@@ -123,6 +123,33 @@ search_engine_watson/fast:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/build
 .PHONY : search_engine_watson/fast
 
+Article.o: Article.cpp.o
+
+.PHONY : Article.o
+
+# target to build an object file
+Article.cpp.o:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Article.cpp.o
+.PHONY : Article.cpp.o
+
+Article.i: Article.cpp.i
+
+.PHONY : Article.i
+
+# target to preprocess a source file
+Article.cpp.i:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Article.cpp.i
+.PHONY : Article.cpp.i
+
+Article.s: Article.cpp.s
+
+.PHONY : Article.s
+
+# target to generate assembly for a file
+Article.cpp.s:
+	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Article.cpp.s
+.PHONY : Article.cpp.s
+
 Author.o: Author.cpp.o
 
 .PHONY : Author.o
@@ -176,33 +203,6 @@ DocHandler.s: DocHandler.cpp.s
 DocHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s
 .PHONY : DocHandler.cpp.s
-
-Document.o: Document.cpp.o
-
-.PHONY : Document.o
-
-# target to build an object file
-Document.cpp.o:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Document.cpp.o
-.PHONY : Document.cpp.o
-
-Document.i: Document.cpp.i
-
-.PHONY : Document.i
-
-# target to preprocess a source file
-Document.cpp.i:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Document.cpp.i
-.PHONY : Document.cpp.i
-
-Document.s: Document.cpp.s
-
-.PHONY : Document.s
-
-# target to generate assembly for a file
-Document.cpp.s:
-	$(MAKE) -f CMakeFiles/search_engine_watson.dir/build.make CMakeFiles/search_engine_watson.dir/Document.cpp.s
-.PHONY : Document.cpp.s
 
 IndexHandler.o: IndexHandler.cpp.o
 
@@ -375,15 +375,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... search_engine_watson"
 	@echo "... edit_cache"
+	@echo "... Article.o"
+	@echo "... Article.i"
+	@echo "... Article.s"
 	@echo "... Author.o"
 	@echo "... Author.i"
 	@echo "... Author.s"
 	@echo "... DocHandler.o"
 	@echo "... DocHandler.i"
 	@echo "... DocHandler.s"
-	@echo "... Document.o"
-	@echo "... Document.i"
-	@echo "... Document.s"
 	@echo "... IndexHandler.o"
 	@echo "... IndexHandler.i"
 	@echo "... IndexHandler.s"

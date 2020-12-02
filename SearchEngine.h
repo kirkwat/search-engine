@@ -14,12 +14,15 @@
 
 class SearchEngine {
 private:
+    char* filePath="C:\\Users\\watso\\Downloads\\cs2341_project_data";
+
     IndexHandler indexer;
     DocHandler docProcessor;
     set<string> authDocs;
     vector<set<string>> notDocs;
     vector<set<string>> conditionalDocs;
     set<string> finalDocs;
+    vector<AvlNode<Word>*> searchWords;
 
 
 

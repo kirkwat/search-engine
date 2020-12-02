@@ -141,7 +141,7 @@ RAPIDJSON_NAMESPACE_BEGIN
 #endif
 
 //! Combination of parseFlags
-/*! \see Reader::Parse, Document::Parse, Document::ParseInsitu, Document::ParseStream
+/*! \see Reader::Parse, Article::Parse, Article::ParseInsitu, Article::ParseStream
  */
 enum ParseFlag {
     kParseNoFlags = 0,              //!< No flags are set.

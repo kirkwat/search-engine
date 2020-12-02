@@ -135,18 +135,18 @@ CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DocHandler.cpp -o CMakeFiles/search_engine_watson.dir/DocHandler.cpp.s
 
-CMakeFiles/search_engine_watson.dir/Document.cpp.o: CMakeFiles/search_engine_watson.dir/flags.make
-CMakeFiles/search_engine_watson.dir/Document.cpp.o: ../Document.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/search_engine_watson.dir/Document.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/search_engine_watson.dir/Document.cpp.o -c /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Document.cpp
+CMakeFiles/search_engine_watson.dir/Article.cpp.o: CMakeFiles/search_engine_watson.dir/flags.make
+CMakeFiles/search_engine_watson.dir/Article.cpp.o: ../Article.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/search_engine_watson.dir/Article.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/search_engine_watson.dir/Article.cpp.o -c /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Article.cpp
 
-CMakeFiles/search_engine_watson.dir/Document.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/search_engine_watson.dir/Document.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Document.cpp > CMakeFiles/search_engine_watson.dir/Document.cpp.i
+CMakeFiles/search_engine_watson.dir/Article.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/search_engine_watson.dir/Article.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Article.cpp > CMakeFiles/search_engine_watson.dir/Article.cpp.i
 
-CMakeFiles/search_engine_watson.dir/Document.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/search_engine_watson.dir/Document.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Document.cpp -o CMakeFiles/search_engine_watson.dir/Document.cpp.s
+CMakeFiles/search_engine_watson.dir/Article.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/search_engine_watson.dir/Article.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Article.cpp -o CMakeFiles/search_engine_watson.dir/Article.cpp.s
 
 CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.o: CMakeFiles/search_engine_watson.dir/flags.make
 CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.o: ../SearchEngine.cpp
@@ -182,7 +182,7 @@ search_engine_watson_OBJECTS = \
 "CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.o" \
 "CMakeFiles/search_engine_watson.dir/Interface.cpp.o" \
 "CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o" \
-"CMakeFiles/search_engine_watson.dir/Document.cpp.o" \
+"CMakeFiles/search_engine_watson.dir/Article.cpp.o" \
 "CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.o" \
 "CMakeFiles/search_engine_watson.dir/Author.cpp.o"
 
@@ -195,7 +195,7 @@ search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/Word.cpp.o
 search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.o
 search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/Interface.cpp.o
 search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o
-search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/Document.cpp.o
+search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/Article.cpp.o
 search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.o
 search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/Author.cpp.o
 search_engine_watson.exe: CMakeFiles/search_engine_watson.dir/build.make
