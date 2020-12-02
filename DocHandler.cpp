@@ -26,32 +26,67 @@ void DocHandler::processDocs(set<string> docs,vector<AvlNode<Word>*> words,strin
     while(!readfile.eof()){
         //info to print
         //title, first author, publication, date published
-
+        //cord_uid
         getline(readfile,input,',');
+        //sha
         getline(readfile,input,',');
 
         auto it=docs.find(input);
         if(it!=docs.end()){
+            //source_x
             getline(readfile,input,',');
+            //title
             getline(readfile,input,',');
             string title=input;
-            getline(readfile,input,'"');
-            getline(readfile,input,'"');
+            if(input[0]=='"'){
+                title=input.substr(1,input.length()-1)+",";
+                getline(readfile,input,'"');
+                title+=input;
+                getline(readfile,input,',');
+            }
+            //doi
             getline(readfile,input,',');
+            //pmcid
+            getline(readfile,input,',');
+            //pubmed_id
+            getline(readfile,input,',');
+            //license
+            getline(readfile,input,',');
+            //abstract
+            getline(readfile,input,',');
+            if(input[0]=='"'){
+                getline(readfile,input,'"');
+                getline(readfile,input,',');
+            }
+            //date
             getline(readfile,input,',');
             string date=input;
-            getline(readfile,input,'"');
-            getline(readfile,input,'"');
-            string author;
-            if(input.find(";")!=string::npos){
-                author=input.substr(0,input.find(";"));
-            }
-            else{
-                author=input;
-            }
+            //authors
             getline(readfile,input,',');
+            string tempstr;
+            string author;
+            if(input[0]=='"'){
+                tempstr=input.substr(1,input.length()-1)+",";
+                getline(readfile,input,'"');
+                tempstr+=input;
+                if(tempstr.find(";")!=string::npos){
+                    author=tempstr.substr(0,tempstr.find(";"));
+                }
+                else{
+                    author=tempstr;
+                }
+                getline(readfile,input,',');
+            }
+            //journal
             getline(readfile,input,',');
             string publication=input;
+            if(input[0]=='"'){
+                publication=input.substr(1,input.length()-1)+",";
+                getline(readfile,input,'"');
+                publication+=input;
+                getline(readfile,input,',');
+            }
+            //remainder of line
             getline(readfile,input);
 
             string filePath=corpusPath+"\\\\"+*it+".json";
@@ -65,37 +100,24 @@ void DocHandler::processDocs(set<string> docs,vector<AvlNode<Word>*> words,strin
         }
     }
     readfile.close();
-
-
-
-    set<string>::iterator itr;
-    for (itr = docs.begin();itr != docs.end(); ++itr){
-        string filePath=corpusPath+"\\\\"+*itr+".json";
-        rankDoc(filePath);
-    }
 }
 void DocHandler::printTopDocs(){
-    ifstream readfile;
-    //open file
-    readfile.open(metaPath);
-    //check if it was opened properly
-    if (!readfile.is_open()) {
-        cout << "Could not open file " << metaPath<<endl;
-        return;
-    }
-    string input;
-    getline(readfile,input);
-
     int counter=1;
-    set<Article>::iterator itr;
-    for (itr = sortedDocs.begin();itr != sortedDocs.end(); ++itr){
+    set<Article>::reverse_iterator itr;
+    for (itr = sortedDocs.rbegin();itr != sortedDocs.rend(); itr++){
         if(counter==16){
             break;
         }
-        cout<<"\t "<<counter<<". ";
+        if(counter>9){
+            cout<<"\t"<<counter<<". ";
+        }
+        else{
+            cout<<"\t "<<counter<<". ";
+        }
         itr->printInfo();
-        cout<<endl;
-
+        if(counter!=15){
+            cout<<endl;
+        }
         counter++;
     }
 }
@@ -183,4 +205,54 @@ void DocHandler::findMetaData(string data){
     }
     //close directory
     closedir(directory);
+}
+void DocHandler::viewDoc(int docNum){
+    int counter=1;
+    set<Article>::reverse_iterator itr;
+    for (itr = sortedDocs.rbegin();itr != sortedDocs.rend(); itr++){
+        if(docNum==counter){
+            string filePath=corpusPath+"\\\\"+itr->getID()+".json";
+
+            ifstream readJSON(filePath);
+            //create stream wrapper
+            IStreamWrapper isw(readJSON);
+            //parse document
+            Document d;
+            d.ParseStream(isw);
+            //read title
+            cout<<endl<<"Title: "<<d["metadata"].GetObject()["title"].GetString()<<endl;
+            //read body text
+            int wordCount=0;
+            int lineLength=0;
+            cout<<"300 Word Preview: \n\t";
+            for (Value::ConstValueIterator itr = d["body_text"].Begin(); itr != d["body_text"].End(); ++itr){
+                string word;
+                stringstream ss;
+                ss.str(itr->GetObject()["text"].GetString());
+                while(ss>>word){
+                    wordCount++;
+                    lineLength+=word.length();
+                    cout<<word;
+                    if(lineLength>150){
+                        cout<<"\n\t";
+                        lineLength=0;
+                    }
+                    else{
+                        cout<<" ";
+                    }
+                    if(wordCount==299){
+                        cout<<"..."<<endl;
+                        break;
+                    }
+                }
+                if(wordCount==299) {
+                    break;
+                }
+            }
+            //close file
+            readJSON.close();
+            break;
+        }
+        counter++;
+    }
 }

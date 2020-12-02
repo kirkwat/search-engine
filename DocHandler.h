@@ -38,6 +38,7 @@ public:
     double rankDoc(string);
     int parseText(string);
     void findMetaData(string);
+    void viewDoc(int);
 
 };
 

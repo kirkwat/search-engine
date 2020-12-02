@@ -11,17 +11,14 @@ int main(int argc, char** argv){
 }
 
 //QUESTIONS
-//should we have the path to corpus hardcoded into program
 //what is a persistence file
-//is the average number of words indexed by article just indexSize/corpusSize or is it the wordCountPerArticle/corpusSize
-//will there be a search for multiple authors
 //using metadata to ignore certain files
 
 //TODO
 //create hashtable
-//parse authors
-
-//ROAD MAP
-//doc handler
-//doc object
-//author object
+//multiple authors in search
+//optimize relevancy
+//add persistence file feature
+//how do we ignore files that do not have full text
+//fix create,clear,create crash bug
+//comment and organize code

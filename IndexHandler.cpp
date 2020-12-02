@@ -152,11 +152,14 @@ void IndexHandler::displayFreqWords(){
 void IndexHandler::clearIndex(){
     index.clear();
     authIndex.clear();
+    corpusSize=0;
+    indexSize=0;
+    authorCount=0;
 }
 //check to see if index has elements
 bool IndexHandler::hasElements(){
     //return true if elements exist
-    return index.getRoot()!=nullptr;
+    return index.getRoot()!=nullptr&&indexSize>0;
 }
 int IndexHandler::getIndexSize(){
     return indexSize;

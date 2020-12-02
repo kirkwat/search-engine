@@ -14,7 +14,8 @@
 
 class SearchEngine {
 private:
-    char* filePath="C:\\Users\\watso\\Downloads\\cs2341_project_data";
+    //"C:\\Users\\watso\\Downloads\\cs2341_project_data"
+    char* filePath="C:\\Users\\watso\\Downloads\\testing";
 
     IndexHandler indexer;
     DocHandler docProcessor;

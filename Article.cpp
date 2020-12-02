@@ -45,7 +45,6 @@ string Article::getID()const{
     return id;
 }
 void Article::printInfo()const{
-    cout<<"\t\t"<<title<<endl;
-    cout<<"\t\t"<<author<<endl;
-    cout<<"\t\t"<<date<<" - "<<publication<<endl;
+    cout<<title<<endl;
+    cout<<"\t\t"<<author<<" - "<<date<<" - "<<publication<<endl;
 }

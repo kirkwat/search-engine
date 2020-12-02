@@ -127,10 +127,21 @@ void SearchEngine::search(string query){
 void SearchEngine::displaySearch(){
     if(!finalDocs.empty()){
         cout<<"Results"<<endl;
-        cout<<"\tNumber of documents found: "<<finalDocs.size()<<endl;
+        cout<<"   Number of documents found: "<<finalDocs.size()<<endl;
         docProcessor.processDocs(finalDocs,searchWords,string(filePath),indexer.getCorpusSize());
-        cout<<"\tShowing top 15 results"<<endl;
+        cout<<"   Top 15 results:"<<endl;
         docProcessor.printTopDocs();
+        int option=-1;
+        cout<<endl<<"If you wish to view a document, please enter the number corresponding the result,\nor enter 0 to return to the main menu: ";
+        menuEntry:
+        cin>>option;
+        if(option>0&&option<16){
+            docProcessor.viewDoc(option);
+        }
+        else if(option!=0){
+            cout<<endl<<"Invalid input. Please try again: "<<endl;
+            goto menuEntry;
+        }
     }
     else{
         cout<<"No results were found :/"<<endl;
