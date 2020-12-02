@@ -11,6 +11,7 @@ int main(int argc, char** argv){
 }
 
 //QUESTIONS
+//clear function error, what is wrong with avl tree destructor
 //what is a persistence file
 //using metadata to ignore certain files
 //should i have the user enter corpus path?
