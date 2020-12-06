@@ -16,6 +16,11 @@ public:
     }
     //overloaded constructor
     AvlNode (const PlaceHolderType& element,AvlNode* lt, AvlNode* rt, int h=0):payload(element),left(lt),right(rt),height(h) {};
+    //destructor
+    ~AvlNode(){
+
+    }
+
 };
 
 #endif //SEARCH_ENGINE_WATSON_AVLNODE_H

@@ -165,7 +165,7 @@ void SearchEngine::displaySearch(){
         }
         //user input error
         else if(option!=0){
-            cout<<endl<<"Invalid input. Please try again: "<<endl;
+            cout<<endl<<"Invalid input. Please try again: ";
             goto menuEntry;
         }
     }

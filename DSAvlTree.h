@@ -1,6 +1,6 @@
 #ifndef SEARCH_ENGINE_WATSON_DSAVLTREE_H
 #define SEARCH_ENGINE_WATSON_DSAVLTREE_H
-
+#include <iostream>
 #include "AvlNode.h"
 
 using namespace std;
@@ -26,15 +26,14 @@ private:
     }
     //recursive clear function
     void clear(AvlNode<PlaceHolderType>*& toDelete){
-        //delete left node
-        if (toDelete->left != nullptr){
+        //check if node exists
+        if(toDelete!=nullptr){
+            //clear left and right nodes
             clear(toDelete->left);
-        }
-        //delete right node
-        if (toDelete->right != nullptr){
             clear(toDelete->right);
+            delete toDelete;
+            toDelete=nullptr;
         }
-        delete toDelete;
     }
     //calculate height of node
     int height(AvlNode<PlaceHolderType>* head) const{
@@ -153,10 +152,7 @@ public:
     }
     //destructor
     ~DSAvlTree() {
-        if (root == nullptr) {
-            return;
-        }
-        else{
+        if (root != nullptr) {
             clear(root);
         }
     }
@@ -170,10 +166,7 @@ public:
     }
     //clear avl tree
     void clear(){
-        if (root == nullptr) {
-            return;
-        }
-        else{
+        if(root!= nullptr){
             clear(root);
         }
     }
