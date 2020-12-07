@@ -90,16 +90,6 @@ Author.h
 FreqWord.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/FreqWord.h
 
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.cpp
-Interface.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.h
-
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.h
-iostream
--
-SearchEngine.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/SearchEngine.h
-
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/SearchEngine.cpp
 SearchEngine.h
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/SearchEngine.h
@@ -127,10 +117,6 @@ string
 -
 set
 -
-
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/main.cpp
-Interface.h
-/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.h
 
 /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/porter2_stemmer.h
 vector

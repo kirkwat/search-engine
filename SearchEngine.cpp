@@ -77,18 +77,18 @@ void SearchEngine::search(string query){
                         //add to NOT set vector
                         notDocs.push_back(findQuery->payload.getDocs());
                     }
-                    //if AND search but query not found
-                    else if(searchOperator==0){
-                        set<string> result;
-                        finalDocs=result;
-                        return;
-                    }
                     //normal word search
                     else{
                         //add to word set vector
                         conditionalDocs.push_back(findQuery->payload.getDocs());
                         searchWords.push_back(findQuery);
                     }
+                }
+                //if AND search but query not found
+                else if(searchOperator==0){
+                    set<string> result;
+                    finalDocs=result;
+                    return;
                 }
             }
         }
