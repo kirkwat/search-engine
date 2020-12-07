@@ -28,10 +28,12 @@ public:
     bool operator< (const Word&)const;
 
     void addDoc(string);
+    void addDoc2(string);
 
     string getWord()const;
     set<string> getDocs()const;
     int getDocCount()const;
+    void setAppearances(int);
     int getAppearances()const;
 
 };

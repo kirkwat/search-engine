@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Article.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/Article.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Author.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/Author.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/DocHandler.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o"
+  "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/FreqWord.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/FreqWord.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/IndexHandler.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/Interface.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/Interface.cpp.o"
   "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/SearchEngine.cpp" "/cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug/CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.o"

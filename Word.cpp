@@ -27,16 +27,23 @@ bool Word::operator== (const Word& copy)const{
 }
 //greater than operator with string
 bool Word::operator> (const Word& copy)const{
-    return word > copy.getWord();
+    return word > copy.word;
 }
 //less than operator with string
 bool Word::operator< (const Word& copy)const{
-    return word < copy.getWord();
+    return word < copy.word;
 }
 //add document to set
 void Word::addDoc(string doc){
     documentIDs.insert(doc);
     appearances++;
+}
+//add document to set
+void Word::addDoc2(string doc){
+    documentIDs.insert(doc);
+}
+void Word::setAppearances(int a){
+    appearances=a;
 }
 //return string of word
 string Word::getWord()const{

@@ -14,6 +14,7 @@
 #include "AvlNode.h"
 #include "Word.h"
 #include "Author.h"
+#include "FreqWord.h"
 
 using namespace std;
 using namespace rapidjson;
@@ -23,6 +24,7 @@ private:
     DSAvlTree<Word> index;
     DSAvlTree<Author> authIndex;
     set<string> stopwords;
+    set<FreqWord> freqWords;
     int indexSize;
     int authorCount;
     int corpusSize;
@@ -30,7 +32,7 @@ private:
 public:
     IndexHandler();
 
-    void createIndex(char*);
+    void createIndex(string);
     AvlNode<Word>* findWord(string);
     AvlNode<Author>* findAuthor(string);
     void readDoc(string);
@@ -38,7 +40,14 @@ public:
     void addAuthor(string,string);
     void getStopWords();
     void displayFreqWords();
+    void getFreqWords(AvlNode<Word>*);
     void clearIndex();
+    void saveIndex(string);
+    void saveWord(AvlNode<Word>*,ofstream&);
+    void saveAuthor(AvlNode<Author>*,ofstream&);
+    void loadIndex(string);
+    void loadWord(string);
+    void loadAuthor(string);
 
     bool hasElements();
     int getIndexSize();

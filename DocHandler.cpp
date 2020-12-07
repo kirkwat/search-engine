@@ -126,10 +126,10 @@ void DocHandler::printTopDocs(){
         }
         //print info
         itr->printInfo();
+        //formatting
         if(counter!=15){
             cout<<endl;
         }
-        //formatting
         counter++;
     }
 }

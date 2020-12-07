@@ -93,8 +93,9 @@ void Interface::createIndex(){
     }
     //persistence file
     else if(input==2){
-        //TODO
-        cout<<endl<<"WIP"<<endl;
+        cout<<endl<<"Loading persistence file and creating index..."<<endl;
+        engine.loadIndex("../persistenceFile.txt");
+        cout<<"...Complete!"<<endl;
     }
     //user input error
     else{
@@ -104,10 +105,34 @@ void Interface::createIndex(){
 }
 //clear index
 void Interface::clearIndex(){
-    cout<<endl<<"Clearing index..."<<endl;
-    engine.clearIndex();
-    cout<<"...Complete!"<<endl;
-
+    int input;
+    //clear index menu
+    cout<<endl<<"Select one of the following options."<<endl;
+    cout<<"\t1. Clear index."<<endl;
+    cout<<"\t2. Save and clear index."<<endl;
+    cout<<"Please enter the number corresponding the desired action: ";
+    inputEntry:
+    cin>>input;
+    //only clear index
+    if(input==1){
+        cout<<endl<<"Clearing index..."<<endl;
+        engine.clearIndex();
+        cout<<"...Complete!"<<endl;
+    }
+    //save and clear index
+    else if(input==2){
+        cout<<endl<<"Loading persistence file and clearing index..."<<endl;
+        //save index
+        engine.saveIndex("../persistenceFile.txt");
+        //clear index
+        engine.clearIndex();
+        cout<<"...Complete!"<<endl;
+    }
+    //user input error
+    else{
+        cout<<"Invalid input. Please try again: "<<endl;
+        goto inputEntry;
+    }
 }
 //search engine
 void Interface::searchIndex(){

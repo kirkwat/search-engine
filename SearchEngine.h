@@ -15,8 +15,8 @@
 class SearchEngine {
 private:
     //PLACE CORPUS PATH HERE
-    //"C:\\Users\\watso\\Downloads\\cs2341_project_data"
-    char* filePath="C:\\Users\\watso\\Downloads\\testing";
+    //"C:\Users\watso\Downloads\cs2341_project_data"
+    string filePath=R"(C:\Users\watso\Downloads\testing)";
     IndexHandler indexer;
     DocHandler docProcessor;
     set<string> authDocs;
@@ -35,6 +35,8 @@ public:
     void displaySearch();
     void clearSearch();
     bool indexFull();
+    void loadIndex(string);
+    void saveIndex(string);
 };
 
 

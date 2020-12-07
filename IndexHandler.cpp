@@ -9,12 +9,12 @@ IndexHandler::IndexHandler(){
     authorCount=0;
 }
 //create index
-void IndexHandler::createIndex(char* data){
+void IndexHandler::createIndex(string data){
     DIR *directory;
     struct dirent *entry;
     struct stat info;
     //open directory
-    directory=opendir(data);
+    directory=opendir(data.c_str());
     //check if directory exists
     if(!directory){
         cout<<"Folder not found"<<endl;
@@ -24,7 +24,7 @@ void IndexHandler::createIndex(char* data){
     while((entry=readdir(directory))!=nullptr){
         if(entry->d_name[0]!='.'){
             //get path
-            string path=string(data)+"\\\\"+string(entry->d_name);
+            string path=data+"\\\\"+string(entry->d_name);
             //check if path is another directory
             stat(path.c_str(),&info);
             if(S_ISDIR(info.st_mode)){
@@ -148,7 +148,50 @@ void IndexHandler::getStopWords(){
 }
 //find and display 50 most frequent words
 void IndexHandler::displayFreqWords(){
-    //TODO
+    //fill freqWords set
+    getFreqWords(index.getRoot());
+
+    int counter=0;
+    //print in top order
+    set<FreqWord>::reverse_iterator itr;
+    for (itr = freqWords.rbegin();itr != freqWords.rend(); itr++){
+        //skip space
+        if(counter==0){
+            counter++;
+            continue;
+        }
+        //end at 15 docs
+        if(counter==51){
+            break;
+        }
+        //formatting
+        if(counter>9){
+            cout<<"\t\t"<<counter<<". ";
+        }
+        else{
+            cout<<"\t\t"<<counter<<".  ";
+        }
+        //print info
+        cout<<itr->getWord()<<" - "<<itr->getFreq();
+        //formatting
+        if(counter!=50){
+            cout<<endl;
+        }
+        counter++;
+    }
+    //clear freqWords list;
+    freqWords.clear();
+    cout<<endl;
+}
+//go through index recursively
+void IndexHandler::getFreqWords(AvlNode<Word>* c){
+    if(c!=nullptr){
+        //add word to set sorted by frequency
+        freqWords.insert(FreqWord(c->payload.getWord(),c->payload.getAppearances()));
+        //go to other nodes
+        getFreqWords(c->left);
+        getFreqWords(c->right);
+    }
 }
 //reset and clear index
 void IndexHandler::clearIndex(){
@@ -157,6 +200,148 @@ void IndexHandler::clearIndex(){
     corpusSize=0;
     indexSize=0;
     authorCount=0;
+}
+void IndexHandler::saveIndex(string outputFile){
+    ofstream file(outputFile);
+    //check if it was opened properly
+    if (!file.is_open()) {
+        cout << "Could not open file "<<outputFile<<"." << endl;
+        return;
+    }
+    //save stats
+    file<<corpusSize<<endl;
+    //iterate through and save word and docs
+    saveWord(index.getRoot(),file);
+    //iterate through and save word and docs
+    file<<"AUTHORS"<<endl;
+    saveAuthor(authIndex.getRoot(),file);
+    //close file
+    file.close();
+}
+//go through index recursively
+void IndexHandler::saveWord(AvlNode<Word>* c, ofstream& fout){
+    if(c!=nullptr){
+        //save word and docs
+        fout<<c->payload.getWord()<<":";
+        //save number of appearances
+        fout<<c->payload.getAppearances()<<":";
+        //get words
+        set<string>docs=c->payload.getDocs();
+        //save docs
+        set<string>::iterator itr;
+        int counter=0;
+        for (itr = docs.begin();itr != docs.end(); itr++){
+            if(counter==0){
+                fout<<*itr;
+            }
+            else{
+                fout<<","<<*itr;
+            }
+            counter++;
+        }
+        fout<<endl;
+        //go to other nodes
+        saveWord(c->left,fout);
+        saveWord(c->right,fout);
+    }
+}
+//go through index recursively
+void IndexHandler::saveAuthor(AvlNode<Author>* c, ofstream& fout){
+    if(c!=nullptr){
+        //save word and docs
+        fout<<c->payload.getLast()<<":";
+        //get authors
+        set<string>docs=c->payload.getDocs();
+        //save docs
+        set<string>::iterator itr;
+        int counter=0;
+        for (itr = docs.begin();itr != docs.end(); itr++){
+            if(counter==0){
+                fout<<*itr;
+            }
+            else{
+                fout<<","<<*itr;
+            }
+            counter++;
+        }
+        fout<<endl;
+        //go to other nodes
+        saveAuthor(c->left,fout);
+        saveAuthor(c->right,fout);
+    }
+}
+void IndexHandler::loadIndex(string file){
+    ifstream readFile;
+    //open setA file
+    readFile.open(file);
+    //check if opened properly
+    if (!readFile.is_open()) {
+        cout << "Could not open file "<<file<<"." << endl;
+        return;
+    }
+    //false if word, true if author
+    bool wordVauthor=false;
+    string input;
+    //read file
+    readFile>>corpusSize;
+    while(readFile>>input){
+        //switch to authors mode
+        if(input=="AUTHORS"){
+            wordVauthor=true;
+        }
+        //load authors
+        else if(wordVauthor){
+            loadAuthor(input);
+            authorCount++;
+        }
+        //load word
+        else{
+            loadWord(input);
+            indexSize++;
+        }
+    }
+}
+void IndexHandler::loadWord(string input){
+    //get word
+    Word temp=Word(input.substr(0,input.find(':')));
+    //remove word
+    input=input.substr(input.find(':')+1,input.size()-input.find(':')-1);
+    //get appearances
+    string num=input.substr(0,input.find(':'));
+    stringstream ss(num);
+    int appearances;
+    ss>>appearances;
+    temp.setAppearances(appearances);
+    //remove appearances
+    input=input.substr(input.find(':')+1,input.size()-input.find(':')-1);
+    //get docs
+    while(input.find(',')!=string::npos){
+        //add doc
+        temp.addDoc2(input.substr(0,input.find(',')));
+        //remove doc
+        input=input.substr(input.find(',')+1,input.size()-input.find(',')-1);
+    }
+    //add last doc
+    temp.addDoc2(input);
+    //add word to index
+    index.insert(temp);
+}
+void IndexHandler::loadAuthor(string input){
+    //get author
+    Author temp=Author(input.substr(0,input.find(':')));
+    //remove author
+    input=input.substr(input.find(':')+1,input.size()-input.find(':')-1);
+    //get docs
+    while(input.find(',')!=string::npos){
+        //add doc
+        temp.addDoc(input.substr(0,input.find(',')));
+        //remove doc
+        input=input.substr(input.find(',')+1,input.size()-input.find(',')-1);
+    }
+    //add last doc
+    temp.addDoc(input);
+    //add author to index
+    authIndex.insert(temp);
 }
 //check to see if index has elements
 bool IndexHandler::hasElements(){

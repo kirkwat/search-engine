@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/search_engine_watson.dir/Article.cpp.o"
   "CMakeFiles/search_engine_watson.dir/Author.cpp.o"
   "CMakeFiles/search_engine_watson.dir/DocHandler.cpp.o"
+  "CMakeFiles/search_engine_watson.dir/FreqWord.cpp.o"
   "CMakeFiles/search_engine_watson.dir/IndexHandler.cpp.o"
   "CMakeFiles/search_engine_watson.dir/Interface.cpp.o"
   "CMakeFiles/search_engine_watson.dir/SearchEngine.cpp.o"

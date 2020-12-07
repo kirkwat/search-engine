@@ -1,20 +1,20 @@
 #include "Interface.h"
+#include "DSHashTable.h"
 
 using namespace std;
 
-int main(int argc, char** argv){
-
+int main(){
+    //create engine
     Interface engine;
+    //launch engine
     engine.launchEngine();
+
+    //DSHashTable<int,string> table;
+
 
     return 0;
 }
 
 //TODO
-//persistence file
 //create hashtable
-//print 50 top frequent words
-//use metadata to ignore certain files
-//fix error - tree AUTHOR green
-//fix error - AND poop tree
-     //ignore empty sets
+//uml diagram

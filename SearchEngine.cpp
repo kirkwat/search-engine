@@ -22,6 +22,7 @@ void SearchEngine::displayStats(){
     cout<<"\tTotal number of unique words: "<<indexer.getIndexSize()<<endl;
     cout<<"\tTotal number of unique authors: "<<indexer.getAuthorCount()<<endl;
     cout<<"\tTop 50 most frequent words:"<<endl;
+    cout<<"\t\tWord - # of Appearances"<<endl;
     indexer.displayFreqWords();
 }
 //search query
@@ -60,6 +61,11 @@ void SearchEngine::search(string query){
                     //add to author set
                     authDocs=findAuth->payload.getDocs();
                 }
+                else{
+                    set<string> result;
+                    finalDocs=result;
+                    return;
+                }
             }
             //search for word
             else{
@@ -70,6 +76,12 @@ void SearchEngine::search(string query){
                     if(searchType==0){
                         //add to NOT set vector
                         notDocs.push_back(findQuery->payload.getDocs());
+                    }
+                    //if AND search but query not found
+                    else if(searchOperator==0){
+                        set<string> result;
+                        finalDocs=result;
+                        return;
                     }
                     //normal word search
                     else{
@@ -93,10 +105,10 @@ void SearchEngine::search(string query){
             //AND operator
             if(searchOperator==0){
                 //get intersections for docs of every search word
-                for(int x=1;x<conditionalDocs.size();x++){
+                for (int x = 1; x < conditionalDocs.size(); x++) {
                     set<string> result;
-                    set_intersection(conditionalDocs[0].begin(), conditionalDocs[0].end(), conditionalDocs[x].begin(), conditionalDocs[x].end(),inserter(result, result.end()));
-                    conditionalDocs[0]=result;
+                    set_intersection(conditionalDocs[0].begin(), conditionalDocs[0].end(),conditionalDocs[x].begin(), conditionalDocs[x].end(),inserter(result, result.end()));
+                    conditionalDocs[0] = result;
                 }
             }
             //OR operator
@@ -194,4 +206,12 @@ void SearchEngine::clearSearch() {
 //check if index has elements
 bool SearchEngine::indexFull(){
     return indexer.hasElements();
+}
+//load persistence file to create index
+void SearchEngine::loadIndex(string iPath){
+    indexer.loadIndex(iPath);
+}
+//save index to a persistence file
+void SearchEngine::saveIndex(string oPath){
+    indexer.saveIndex(oPath);
 }
