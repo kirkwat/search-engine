@@ -150,9 +150,8 @@ void IndexHandler::getStopWords(){
 void IndexHandler::displayFreqWords(){
     //fill freqWords set
     getFreqWords(index.getRoot());
-
-    int counter=0;
     //print in top order
+    int counter=0;
     set<FreqWord>::reverse_iterator itr;
     for (itr = freqWords.rbegin();itr != freqWords.rend(); itr++){
         //skip space
@@ -201,6 +200,7 @@ void IndexHandler::clearIndex(){
     indexSize=0;
     authorCount=0;
 }
+//save index to persistence file
 void IndexHandler::saveIndex(string outputFile){
     ofstream file(outputFile);
     //check if it was opened properly
@@ -270,6 +270,7 @@ void IndexHandler::saveAuthor(AvlNode<Author>* c, ofstream& fout){
         saveAuthor(c->right,fout);
     }
 }
+//create index from persistence file
 void IndexHandler::loadIndex(string file){
     ifstream readFile;
     //open setA file
@@ -301,6 +302,7 @@ void IndexHandler::loadIndex(string file){
         }
     }
 }
+//load word and its info
 void IndexHandler::loadWord(string input){
     //get word
     Word temp=Word(input.substr(0,input.find(':')));
@@ -326,6 +328,7 @@ void IndexHandler::loadWord(string input){
     //add word to index
     index.insert(temp);
 }
+//load author and its info
 void IndexHandler::loadAuthor(string input){
     //get author
     Author temp=Author(input.substr(0,input.find(':')));

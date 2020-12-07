@@ -162,7 +162,7 @@ void SearchEngine::displaySearch(){
         cout<<"Results"<<endl;
         cout<<"   Number of documents found: "<<finalDocs.size()<<endl;
         //rank results
-        docProcessor.processDocs(finalDocs,searchWords,string(filePath),indexer.getCorpusSize());
+        docProcessor.processDocs(finalDocs,searchWords,filePath,indexer.getCorpusSize());
         //print top 15 docs
         cout<<"   Top 15 results:"<<endl;
         docProcessor.printTopDocs();

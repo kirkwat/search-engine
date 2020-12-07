@@ -1,14 +1,14 @@
 //
 // Created by watso on 12/2/2020.
 //
-
+//TODO incomplete :/
 #ifndef SEARCH_ENGINE_WATSON_DSHASHTABLE_H
 #define SEARCH_ENGINE_WATSON_DSHASHTABLE_H
 
 #include <list>
 
 template <typename key, typename value>
-class DSHashTable{
+class DSHashTable{/*
 private:
     int size;
     int insertions;
@@ -50,13 +50,9 @@ public:
     }
     //bool remove(const KeyType& deleteKey);
     //bool retrieve(const KeyType& searchKey, DataType& returnItem) const;
-    void clear();
+    void clear(){}
 
-    bool isEmpty() const;
-
-    void showStructure() const;
-
-    double standardDeviation() const;
+    bool isEmpty() const{}*/
 
 };
 

@@ -154,7 +154,6 @@ CMakeFiles/search_engine_watson.dir/main.cpp.o: ../Article.h
 CMakeFiles/search_engine_watson.dir/main.cpp.o: ../Author.h
 CMakeFiles/search_engine_watson.dir/main.cpp.o: ../AvlNode.h
 CMakeFiles/search_engine_watson.dir/main.cpp.o: ../DSAvlTree.h
-CMakeFiles/search_engine_watson.dir/main.cpp.o: ../DSHashTable.h
 CMakeFiles/search_engine_watson.dir/main.cpp.o: ../DocHandler.h
 CMakeFiles/search_engine_watson.dir/main.cpp.o: ../FreqWord.h
 CMakeFiles/search_engine_watson.dir/main.cpp.o: ../IndexHandler.h

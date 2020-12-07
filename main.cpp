@@ -1,20 +1,16 @@
 #include "Interface.h"
-#include "DSHashTable.h"
 
 using namespace std;
 
 int main(){
+    //HOW TO RUN
+    //GO TO SearchEngine.h
+    //PLACE CORPUS FILE PATH
+
     //create engine
     Interface engine;
     //launch engine
     engine.launchEngine();
 
-    //DSHashTable<int,string> table;
-
-
     return 0;
 }
-
-//TODO
-//create hashtable
-//uml diagram

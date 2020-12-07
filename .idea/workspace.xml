@@ -95,7 +95,7 @@
       <workItem from="1607147240369" duration="2147000" />
       <workItem from="1607232616268" duration="596000" />
       <workItem from="1607277076074" duration="597000" />
-      <workItem from="1607287436331" duration="30159000" />
+      <workItem from="1607287436331" duration="34000000" />
     </task>
     <servers />
   </component>
@@ -103,9 +103,18 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/SearchEngine.cpp</url>
+          <line>164</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
-        <watch expression="toDelete-&gt;right" />
+        <watch expression="toDelete-&gt;right" language="ASM" />
         <watch expression="toDelete-&gt;right" />
       </configuration>
     </watches-manager>
