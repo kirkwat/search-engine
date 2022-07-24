@@ -251,7 +251,7 @@ void DocHandler::viewDoc(int docNum){
                     lineLength+=word.length();
                     cout<<word;
                     //formatting
-                    if(lineLength>150){
+                    if(lineLength>75){
                         cout<<"\n\t";
                         lineLength=0;
                     }

@@ -45,8 +45,23 @@ void Article::addInfo(string titl,string dat,string auth,string pub){
 }
 //print article info
 void Article::printInfo()const{
-    cout<<title<<endl;
-    cout<<"\t\t"<<author<<" - "<<date<<" - "<<publication<<endl;
+    int lineLength=0;
+    string word;
+    stringstream ss;
+    ss<<title;
+    while(ss>>word){
+        lineLength+=word.length();
+        cout<<word;
+        //formatting
+        if(lineLength>75){
+            cout<<"\n\t";
+            lineLength=0;
+        }
+        else{
+            cout<<" ";
+        }
+    }
+    cout<<"\n\t\t"<<author<<" - "<<date<<" - "<<publication<<endl;
 }
 //get rank
 double Article::getRank(){
