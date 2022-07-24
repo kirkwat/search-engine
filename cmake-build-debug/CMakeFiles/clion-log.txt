@@ -1,4 +1,0 @@
-C:\Users\watso\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson
--- Configuring done
--- Generating done
--- Build files have been written to: /cygdrive/c/Users/watso/Documents/GitHub/search-engine-watson/cmake-build-debug
