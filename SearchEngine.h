@@ -16,8 +16,8 @@ class SearchEngine {
 private:
     //PLACE CORPUS PATH HERE
     //EXAMPLE:
-    //C:\Users\watso\Downloads\cs2341_project_data\cs2341_data
-    string filePath=R"(C:\Users\watso\Downloads\cs2341_project_data\cs2341_data)";
+    //C:\Users\Kirk\Documents\GitHub\search-engine\dataset
+    string filePath=R"(C:\Users\Kirk\Documents\GitHub\search-engine\dataset)";
     IndexHandler indexer;
     DocHandler docProcessor;
     set<string> authDocs;

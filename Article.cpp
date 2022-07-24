@@ -54,8 +54,10 @@ void Article::printInfo()const{
         cout<<word;
         //formatting
         if(lineLength>75){
-            cout<<"\n\t";
-            lineLength=0;
+            if(ss.rdbuf()->in_avail() != 0){
+                cout<<"\n\t";
+                lineLength=0;
+            }
         }
         else{
             cout<<" ";
