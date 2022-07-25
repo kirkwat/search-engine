@@ -11,6 +11,7 @@
 #include "rapidjson/istreamwrapper.h"
 #include "porter2_stemmer.h"
 #include "DSAvlTree.h"
+#include "DSHashTable.h"
 #include "AvlNode.h"
 #include "Word.h"
 #include "Author.h"
@@ -22,6 +23,7 @@ using namespace rapidjson;
 class IndexHandler {
 private:
     DSAvlTree<Word> index;
+    DSHashTable<Author, string> authIndexHash;
     DSAvlTree<Author> authIndex;
     set<string> stopwords;
     set<FreqWord> freqWords;
