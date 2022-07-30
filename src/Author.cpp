@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/27/2020.
-//
-
 #include "Author.h"
 
 //default constructor

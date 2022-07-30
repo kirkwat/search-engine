@@ -1,6 +1,3 @@
-//
-// Created by watso on 12/6/2020.
-//
 #include "FreqWord.h"
 //constructor
 FreqWord::FreqWord(string w ,int f) {

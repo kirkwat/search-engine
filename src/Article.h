@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/26/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_ARTICLE_H
 #define SEARCH_ENGINE_WATSON_ARTICLE_H
 
@@ -11,14 +7,15 @@
 
 using namespace std;
 
+//This class contains the characteristics of a research article.
 class Article {
 private:
-    double rank;
-    string id;
-    string author;
-    string date;
-    string title;
-    string publication;
+    double rank;            //rank of article in a search
+    string id;              //article identifier
+    string author;          //author of article
+    string date;            //date of publication
+    string title;           //title of article
+    string publication;     //publisher of article
 
 public:
     Article();

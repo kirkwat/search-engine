@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//This class implements an AVL node for the AVL tree.
 template <typename PlaceHolderType>
 class AvlNode{
 public:

@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/18/2020.
-//
-
 #include "Word.h"
 
 using namespace std;

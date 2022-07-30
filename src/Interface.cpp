@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/26/2020.
-//
-
 #include "Interface.h"
 
 //default constructor
@@ -94,7 +90,7 @@ void Interface::createIndex(){
     //persistence file
     else if(input==2){
         cout<<endl<<"Loading persistence file and creating index..."<<endl;
-        engine.loadIndex("../persistenceFile.txt");
+        engine.loadIndex("../src/persistenceFile.txt");
         cout<<"...Complete!"<<endl;
     }
     //user input error

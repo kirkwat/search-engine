@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/18/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_WORD_H
 #define SEARCH_ENGINE_WATSON_WORD_H
 
@@ -12,11 +8,12 @@
 
 using namespace std;
 
+//This class contains the characteristics of a word in the word index.
 class Word {
 private:
-    string word;
-    set<string> documentIDs;
-    int appearances;
+    string word;                //word
+    set<string> documentIDs;    //documents containing a given word
+    int appearances;            //amount of times that a word has appeared
 
 public:
     Word();

@@ -1,7 +1,3 @@
-//
-// Created by watso on 12/6/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_FREQWORD_H
 #define SEARCH_ENGINE_WATSON_FREQWORD_H
 
@@ -9,10 +5,11 @@
 
 using namespace std;
 
+//This class contains the frequency of words parsed from the corpus.
 class FreqWord {
 private:
-    string word;
-    int frequency;
+    string word;        //word
+    int frequency;      //amount of times that the word has appeared
 
 public:
     FreqWord(string,int);

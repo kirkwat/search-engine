@@ -132,7 +132,7 @@ void IndexHandler::addAuthor(string last,string id){
 void IndexHandler::getStopWords(){
     ifstream readfile;
     //open file
-    readfile.open("../stopwords.txt");
+    readfile.open("../src/stopwords.txt");
     //check if it was opened properly
     if (!readfile.is_open()) {
         cout << "Could not open file stopwords.txt." << endl;
@@ -159,7 +159,7 @@ void IndexHandler::displayFreqWords(){
             counter++;
             continue;
         }
-        //end at 15 docs
+        //end at 50 words
         if(counter==51){
             break;
         }

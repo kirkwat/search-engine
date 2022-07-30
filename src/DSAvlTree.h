@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//This class implements an AVL tree data structure to hold the word index.
 template <typename PlaceHolderType>
 class DSAvlTree{
 private:

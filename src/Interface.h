@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/26/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_INTERFACE_H
 #define SEARCH_ENGINE_WATSON_INTERFACE_H
 
@@ -10,9 +6,10 @@
 
 using namespace std;
 
+//This class contains the interface that user interacts with to access the search engine.
 class Interface {
 private:
-    SearchEngine engine;
+    SearchEngine engine;    //instance of the search engine
 
 public:
     Interface();

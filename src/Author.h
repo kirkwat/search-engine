@@ -1,7 +1,3 @@
-//
-// Created by watso on 11/27/2020.
-//
-
 #ifndef SEARCH_ENGINE_WATSON_AUTHOR_H
 #define SEARCH_ENGINE_WATSON_AUTHOR_H
 
@@ -11,10 +7,11 @@
 
 using namespace std;
 
+//This class contains the characteristics of an author in the author index.
 class Author {
 private:
-    string last;
-    set<string> documentIDs;
+    string last;                //last name of an author
+    set<string> documentIDs;    //documents written by an author
 
 public:
     Author();

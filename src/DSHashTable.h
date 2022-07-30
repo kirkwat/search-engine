@@ -7,6 +7,7 @@
 
 using namespace std;
 
+//This class implements a hashtable data structure to hold the author index.
 template<typename K, typename V>
 class DSHashTable{
 private:

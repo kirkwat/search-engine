@@ -7,8 +7,8 @@
 #include <dirent.h>
 #include <sys/stat.h>
 #include <set>
-#include "rapidjson/document.h"
-#include "rapidjson/istreamwrapper.h"
+#include "../rapidjson/document.h"
+#include "../rapidjson/istreamwrapper.h"
 #include "porter2_stemmer.h"
 #include "DSAvlTree.h"
 #include "DSHashTable.h"
@@ -20,16 +20,17 @@
 using namespace std;
 using namespace rapidjson;
 
+//This class controls the search index allowing for creation and search queries.
 class IndexHandler {
 private:
-    DSAvlTree<Word> index;
-    DSHashTable<Author, string> authIndexHash;
-    DSAvlTree<Author> authIndex;
-    set<string> stopwords;
-    set<FreqWord> freqWords;
-    int indexSize;
-    int authorCount;
-    int corpusSize;
+    DSAvlTree<Word> index;                          //index storing words parsed from articles
+    DSHashTable<Author, string> authIndexHash;      //index storing authors parsed from articles
+    DSAvlTree<Author> authIndex;                    //index storing authors parsed from articles
+    set<string> stopwords;                          //set of common words to be ignored while parsing articles
+    set<FreqWord> freqWords;                        //set of most frequent words used in the corpus
+    int indexSize;                                  //size of the word index
+    int authorCount;                                //amount of authors in the author index
+    int corpusSize;                                 //size of the article corpus
 
 public:
     IndexHandler();

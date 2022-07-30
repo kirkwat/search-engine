@@ -20,7 +20,7 @@ Compile and build with CMAKE. There are no command-line arguments.
 
 A corpus of 3,000 documents is included in this repository.
 If interested in utilizing the full dataset, click here to download: [CORD -19](https://www.semanticscholar.org/cord19/download).
-To run the application with a different dataset, simply change the value of the variable **filePath** on line 17 in **SearchEngine.h** to the dataset's file path.
+To run the application with a different dataset, simply change the value of the variable **filePath** on line 14 in **SearchEngine.h** to the dataset's file path.
 
 Upon starting the application, the user will need to create the index using the interface.
 After parsing the documents, the user can use the search engine, view index statistics, or save the index to a persistence file for later use.
